@@ -1,0 +1,30 @@
+{
+  "name": "linguae",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "antd": "^4.18.4",
+    "next": "12.0.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "sass": "^1.49.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-next": "12.0.8",
+    "eslint-plugin-react": "^7.28.0"
+  },
+  "description": "Learn and improve your english skills",
+  "version": "1.0.0",
+  "main": "next.config.js",
+  "author": "Retray & Rose",
+  "license": "ISC",
+  "repository": "git@github.com:iRetray/Linguae.git"
+}

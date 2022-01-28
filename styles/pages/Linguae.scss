@@ -1,0 +1,69 @@
+.LinguaeContainer {
+  max-width: 1200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  //padding: 30px;
+  .version {
+    font-size: 14px;
+  }
+  .buttonsSection {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    div {
+      margin-right: 15px;
+    }
+  }
+  .appName {
+    cursor: pointer;
+    color: #0047ab;
+    font-weight: bold;
+  }
+  .devsContainer {
+    margin: 30px;
+    .devsSection {
+      margin-top: 15px;
+      display: flex;
+      flex-flow: wrap;
+      justify-content: center;
+    }
+  }
+  .nextFeaturesContainer {
+    margin: 30px;
+    .annotation {
+      font-size: 12px;
+      margin-left: 10px;
+      font-weight: bold;
+      color: #0047ab;
+    }
+  }
+
+  .headerMenu {
+    color: #217aff;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    padding: 10px 5px 0px 5px;
+    margin-bottom: 2%;
+    border-bottom: 1px solid;
+    border-image-source: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+    border-image-slice: 1;
+    border-width: 4px;
+
+    .image {
+      border-radius: 100px;
+    }
+
+    .iconsHeader:nth-child(n){
+      width: 17px;
+    }
+
+    .iconsHeader:nth-child(1){
+      margin-right: 9px;
+    }
+  }
+}
+

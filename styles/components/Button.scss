@@ -1,0 +1,39 @@
+@import "./theme.scss";
+
+.ButtonContainer {
+  border: 1px solid $blueLight;
+  font-weight: bold;
+  width: fit-content;
+  padding: 5px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &.primary {
+    background-color: $blueLight;
+    color: white;
+  }
+  &.secondary {
+    background-color: white;
+    color: $blueLight;
+  }
+  &.yellow {
+    color: $yellowLight;
+    border: 1px solid $yellowLight;
+  }
+  &.small {
+    font-size: 12px;
+    padding: 3px 10px;
+  }
+}
+.ButtonContainer:hover {
+  &.primary {
+    background-color: darken($blueLight, 15%);
+  }
+  &.secondary {
+    background-color: lighten($blueLight, 35%);
+  }
+  &.yellow {
+    background-color: lighten($yellowLight, 35%);
+  }
+}

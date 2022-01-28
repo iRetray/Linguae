@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Rosa Morales",
+    "userName": "Crypto-Rose",
+    "description": "Frontend developer",
+    "githubAccount": "https://github.com/Crypto-Rose",
+    "photoPath": "/images/rosa.jpg"
+  },
+  {
+    "name": "Julian Camilo",
+    "userName": "iRetray",
+    "description": "Passionate programmer and React web developer.",
+    "githubAccount": "https://github.com/iRetray",
+    "photoPath": "/images/julian.jpg"
+  }
+]

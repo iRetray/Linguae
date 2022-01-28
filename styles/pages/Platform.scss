@@ -1,0 +1,17 @@
+@import "../theme.scss";
+
+.PlatformContainer {
+  max-width: 1200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  padding: 30px;
+}
+
+.cardSection {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: wrap;
+}
