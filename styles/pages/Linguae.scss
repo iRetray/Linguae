@@ -1,11 +1,78 @@
+@import "../theme.scss";
+
 .LinguaeContainer {
-  max-width: 1200px;
   background-color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: auto;
-  //padding: 30px;
+  .ContentsContainer {
+    max-width: 1250px;
+    display: flex;
+    margin: auto;
+    @media (max-width: $breakpointSmall) {
+      flex-direction: column;
+    }
+    .logoImage {
+      padding: 50px;
+      @media (max-width: $breakpointSmall) {
+        padding: 0px;
+      }
+    }
+    .textContainer {
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: auto;
+      padding: 30px;
+      .title {
+        font-family: monospace;
+        font-size: 60px;
+        display: flex;
+        flex-direction: column;
+        line-height: 35px;
+        .version {
+          font-size: 15px;
+          color: grey;
+          font-weight: bold;
+        }
+      }
+      .description {
+        font-size: 20px;
+        line-height: 20px;
+        padding-bottom: 20px;
+      }
+    }
+  }
+  .FooterContainer {
+    display: flex;
+    justify-content: flex-end;
+    background-color: $blueDark;
+    padding: 20px;
+    .freepikContrubutor {
+      width: fit-content;
+      color: #fff;
+      font-weight: bold;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      span {
+        margin-bottom: 10px;
+      }
+      .logo {
+        filter: brightness(100);
+      }
+    }
+  }
+}
+
+/* .LinguaeContainer {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
   .version {
     font-size: 14px;
   }
@@ -40,30 +107,26 @@
       color: #0047ab;
     }
   }
-
   .headerMenu {
     color: #217aff;
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
     padding: 10px 5px 0px 5px;
     margin-bottom: 2%;
     border-bottom: 1px solid;
-    border-image-source: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+    border-image-source: linear-gradient(45deg, #fbda61 0%, #ff5acd 100%);
     border-image-slice: 1;
     border-width: 4px;
-
     .image {
       border-radius: 100px;
     }
-
-    .iconsHeader:nth-child(n){
+    .iconsHeader:nth-child(n) {
       width: 17px;
     }
-
-    .iconsHeader:nth-child(1){
+    .iconsHeader:nth-child(1) {
       margin-right: 9px;
     }
   }
 }
-
+ */

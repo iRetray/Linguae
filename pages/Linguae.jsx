@@ -4,13 +4,9 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import DevBox from "../components/DevBox";
-import Button from "../components/Button";
+import { BsFillPlayFill } from "react-icons/bs";
 
-import { HiCode } from "react-icons/hi";
-import { BsTranslate, BsGear } from "react-icons/bs";
-import { VscChevronDown } from "react-icons/vsc";
-import devsList from "./devs.json";
+import Button from "../components/Button";
 
 export default function Linguae() {
   return (
@@ -19,56 +15,35 @@ export default function Linguae() {
         <title>Linguae</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="headerMenu">
-        <div>
-          <Image
-            className="image"
-            src="/images/rosa.jpg"
-            alt="Avatar user"
-            width={30}
-            height={30}
-          />
+      <div className="ContentsContainer">
+        <div className="logoImage">
+          <Image src="/images/introLogo.jpg" width={800} height={710} />
         </div>
-        <div className="iconsHeader">
-          <BsGear />
-          <VscChevronDown />
-        </div>
-      </div>
-      <h1>
-        Welcome to <span className="appName">Linguae</span>
-      </h1>
-      <span className="version">
-        Version: <strong>0.2.12 alpha</strong>
-      </span>
-      <div className="buttonsSection">
-        <Link href="/platform" passHref={true}>
-          <Button
-            type="secondary"
-            text="Linguae Platform"
-            icon={<BsTranslate />}
-          />
-        </Link>
-        <Link href="/devsDashboard" passHref={true}>
-          <Button text="Dashboard for devs" icon={<HiCode />} />
-        </Link>
-      </div>
-      <div className="devsContainer">
-        <h2>Meet our dev team</h2>
-        <div className="devsSection">
-          {devsList.map((dev, index) => (
-            <DevBox key={index} {...dev} />
-          ))}
+        <div className="textContainer">
+          <p className="title">
+            Linguae<span className="version"> 0.2.12 alpha</span>
+          </p>
+          <p className="description">
+            Learn and practice your english
+            <strong> sharing your knowledge</strong> with the community
+          </p>
+          <Link href="/platform" passHref={true}>
+            <Button text="Let's get started!" icon={<BsFillPlayFill />} />
+          </Link>
         </div>
       </div>
-      <div className="nextFeaturesContainer">
-        <h2>Next features</h2>
-        <ul>
-          <li>
-            Shared dashboard for the devs{" "}
-            <span className="annotation">Julian is working on this</span>
-          </li>
-          <li>Homescreen with main features</li>
-        </ul>
+      <div className="FooterContainer">
+        <a href="https://www.freepik.es/">
+          <div className="freepikContrubutor">
+            <Image
+              className="logo"
+              src="/images/freepik.svg"
+              width={50}
+              height={50}
+            />
+            <span>Multimedia contents provider</span>
+          </div>
+        </a>
       </div>
     </div>
   );
