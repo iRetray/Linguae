@@ -21,7 +21,7 @@ export default function Linguae() {
         </div>
         <div className="textContainer">
           <p className="title">
-            Linguae<span className="version"> 0.2.12 alpha</span>
+            Linguae<span className="version"> 0.3.1 alpha</span>
           </p>
           <p className="description">
             Learn and practice your english
