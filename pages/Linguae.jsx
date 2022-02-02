@@ -2,7 +2,6 @@ import React from "react";
 
 import Head from "next/head";
 import Link from "next/link";
-import Image from "next/image";
 
 import { BsFillPlayFill } from "react-icons/bs";
 
@@ -17,9 +16,7 @@ export default function Linguae() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="ContentsContainer">
-        <div className="logoImage">
-          <Image src="/images/introLogo.jpg" width={800} height={710} />
-        </div>
+        <img src="/images/introLogo.png" className="logoImage" />
         <div className="textContainer">
           <p className="title">Linguae</p>
           <p className="description">
@@ -57,12 +54,7 @@ export default function Linguae() {
         </a>
         <a href="https://www.freepik.es/">
           <div className="freepikContrubutor">
-            <Image
-              className="logo"
-              src="/images/freepik.svg"
-              width={50}
-              height={50}
-            />
+            <img className="logo" src="/images/freepik.svg" />
             <span>Multimedia contents provider</span>
           </div>
         </a>

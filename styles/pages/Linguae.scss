@@ -10,14 +10,12 @@
     max-width: 1250px;
     display: flex;
     margin: auto;
-    @media (max-width: $breakpointSmall) {
-      flex-direction: column;
-    }
+    flex-wrap: wrap;
     .logoImage {
-      padding: 50px;
-      @media (max-width: $breakpointSmall) {
-        padding: 0px;
-      }
+      max-width: 600px;
+      padding: 20px;
+      width: 100%;
+      margin: auto;
     }
     .textContainer {
       max-width: 400px;
@@ -57,9 +55,6 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 15px;
-    background-color: $greyHard;
-    -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
   }
   .FooterContainer {
     display: flex;
@@ -80,6 +75,7 @@
       }
       .logo {
         filter: brightness(100);
+        max-width: 160px;
       }
     }
     .githubProject {

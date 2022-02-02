@@ -1,7 +1,7 @@
 @import "./theme.scss";
 
 .ButtonContainer {
-  border: 1px solid $blueLight;
+  border: 1px solid $blueHard;
   font-weight: bold;
   width: fit-content;
   padding: 5px 15px;
@@ -10,16 +10,16 @@
   display: flex;
   align-items: center;
   &.primary {
-    background-color: $blueLight;
+    background-color: $blueMedium;
     color: white;
   }
   &.secondary {
     background-color: white;
-    color: $blueLight;
+    color: $blueHard;
   }
   &.yellow {
-    color: $yellowLight;
-    border: 1px solid $yellowLight;
+    color: $redNormal;
+    border: 1px solid $redNormal;
   }
   &.small {
     font-size: 12px;
@@ -28,12 +28,12 @@
 }
 .ButtonContainer:hover {
   &.primary {
-    background-color: darken($blueLight, 15%);
+    background-color: darken($blueHard, 15%);
   }
   &.secondary {
-    background-color: lighten($blueLight, 35%);
+    background-color: lighten($blueHard, 35%);
   }
   &.yellow {
-    background-color: lighten($yellowLight, 35%);
+    background-color: lighten($redNormal, 35%);
   }
 }
