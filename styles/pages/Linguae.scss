@@ -58,6 +58,8 @@
     display: flex;
     justify-content: flex-end;
     background-color: $blueDark;
+    align-items: center;
+    justify-content: space-around;
     padding: 20px;
     .freepikContrubutor {
       width: fit-content;
@@ -71,6 +73,20 @@
       }
       .logo {
         filter: brightness(100);
+      }
+    }
+    .githubProject {
+      width: fit-content;
+      color: #fff;
+      font-weight: bold;
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      span {
+        margin-top: 10px;
+      }
+      img {
+        max-width: 120px;
       }
     }
   }
