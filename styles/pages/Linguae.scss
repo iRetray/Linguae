@@ -31,7 +31,6 @@
         font-size: 60px;
         display: flex;
         flex-direction: column;
-        line-height: 35px;
         .version {
           font-size: 15px;
           color: grey;
@@ -44,6 +43,16 @@
         padding-bottom: 20px;
       }
     }
+  }
+  .FeaturesSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background-color: $greyHard;
+    -webkit-box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
   }
   .FooterContainer {
     display: flex;
