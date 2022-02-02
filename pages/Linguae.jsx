@@ -43,7 +43,7 @@ export default function Linguae() {
           description="Be part of the shared knowledge"
         />
         <FeatureCard
-          imageURL="/images/book.png"
+          imageURL="/images/peopleTalking.png"
           title="Improve your english skills"
           description="Continuous and personalized learning"
         />
