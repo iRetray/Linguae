@@ -7,6 +7,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 
 import Button from "../components/Button";
 import FeatureCard from "../components/FeatureCard";
+import Line from "../components/Line";
 
 export default function Linguae() {
   return (
@@ -28,6 +29,7 @@ export default function Linguae() {
           </Link>
         </div>
       </div>
+      <Line />
       <div className="FeaturesSection">
         <FeatureCard
           imageURL="/images/book.png"
