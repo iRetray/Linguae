@@ -1,3 +1,5 @@
+@import "../theme.scss";
+
 .FeatureContainer {
   min-width: 200px;
   cursor: pointer;
@@ -21,13 +23,13 @@
     .title {
       font-size: 30px;
       font-weight: bold;
-      color: white;
+      color: $greyHard;
       line-height: 30px;
     }
     .description {
       padding-top: 10px;
       font-size: 14px;
-      color: white;
+      color: $greyHard;
       line-height: 15px;
     }
   }
