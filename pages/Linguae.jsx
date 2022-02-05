@@ -49,7 +49,7 @@ export default function Linguae() {
         <a href="https://github.com/iRetray/Linguae">
           <div className="githubProject">
             <img src="/images/github.png" alt="GitHubLogo" />
-            <span>Linguae project v0.3.4</span>
+            <span>Linguae project v0.6.2</span>
           </div>
         </a>
         <a href="https://www.freepik.es/">
