@@ -5,3 +5,4 @@ export * from "./FeatureCard";
 export * from "./GoBack";
 export * from "./Line";
 export * from "./Video";
+export * from "./Loader";

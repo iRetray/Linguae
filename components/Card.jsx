@@ -12,7 +12,7 @@ export function Card({ type, englishValue, spanishValue, image }) {
         <div className="header">
           <p className="type">{type}</p>
           <Button
-            text="Favorito"
+            text="Favorite"
             isSmall={true}
             icon={<AiFillStar className="star" />}
           />

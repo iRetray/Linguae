@@ -11,12 +11,11 @@
   @media (max-width: $breakpointSmall) {
     padding: 40px 20px;
   }
-}
-
-.cardSection {
-  margin-top: 20px;
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  align-items: center;
+  .cardSection {
+    margin-top: 20px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }

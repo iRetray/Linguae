@@ -1,0 +1,12 @@
+.LoaderContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20vh;
+  margin: auto;
+  span {
+    margin-top: 10px;
+    color: #c00021;
+    font-weight: bold;
+  }
+}
