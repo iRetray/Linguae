@@ -6,17 +6,14 @@
   border-radius: 6px;
   -webkit-box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.3);
-  min-width: 300px;
-  margin: 15px 5px;
-  width: 550px;
-  .informationContainer,
-  .mediaEnoder {
-    width: 100%;
-    padding: 20px;
-  }
+  flex-wrap: wrap;
+  width: min-content;
+  height: -webkit-fill-available;
+  margin: 15px;
   .informationContainer {
     display: flex;
     flex-direction: column;
+    padding: 20px;
     .header {
       display: flex;
       justify-content: space-between;
@@ -35,6 +32,7 @@
     .miniCardContainer {
       display: flex;
       flex-direction: column;
+      width: 230px;
       .wordContainer {
         background-color: $greyHard;
         margin-top: 10px;
@@ -57,45 +55,9 @@
       }
     }
   }
-  .mediaEncoder {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    background: #30363d;
-    .imageCard {
-      max-height: 190px;
-      border-bottom-right-radius: 6px;
-      border-top-right-radius: 6px;
-    }
-  }
-  .favorite {
-    color: #fff;
-    background: #252d37;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    padding: 1.5px;
-    flex-direction: column;
-    :nth-child(n) {
-      cursor: pointer;
-    }
-    .video_link {
-      color: #b01212;
-      display: none;
-      transition: all 0.2s ease-in-out;
-    }
-  }
-  @media (max-width: $breakpointSmall) {
-    .video_link {
-      display: block !important;
-    }
-    .video {
-      display: none;
-    }
-  }
-}
-
-@media (min-width: $breakpointSmall) {
-  .ant-popover {
-    display: none !important;
+  .imageCard {
+    max-height: 190px;
+    padding: 10px;
+    border-radius: 20px;
   }
 }

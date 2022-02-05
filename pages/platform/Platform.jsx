@@ -28,7 +28,7 @@ export default function Platform() {
       <Link href="/" passHref={true}>
         <GoBack previousPageName="Home" />
       </Link>
-      <h1>Linguae Platform</h1>
+      <h1>Community words</h1>
       <div className="cardSection">
         {cardList.map((values, index) => (
           <Card key={index} {...values} />
