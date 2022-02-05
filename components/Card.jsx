@@ -3,15 +3,9 @@ import React from "react";
 /* import { Popover } from "antd" */
 import { AiFillStar } from "react-icons/ai";
 
-import Video from "./Video";
-import Button from "./Button";
+import { Video, Button } from ".";
 
-export default function Card({
-  type,
-  englishValue,
-  spanishValue,
-  mediaEncode,
-}) {
+export function Card({ type, englishValue, spanishValue, mediaEncode }) {
   return (
     <div className="CardContainer">
       <div className="informationContainer">

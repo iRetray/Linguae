@@ -1,7 +1,7 @@
 import React from "react";
 
 /* eslint-disable no-unused-vars */
-const Button = React.forwardRef(function Button(
+export const Button = React.forwardRef(function Button(
   { text, icon, onClick, type, isSmall, isYellow },
   ref
 ) {
@@ -17,5 +17,3 @@ const Button = React.forwardRef(function Button(
     </div>
   );
 });
-
-export default Button;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const FeatureCard = ({ imageURL, title, description }) => {
+export const FeatureCard = ({ imageURL, title, description }) => {
   return (
     <div className="FeatureContainer">
       <img src={imageURL} className="image" />
@@ -11,5 +11,3 @@ const FeatureCard = ({ imageURL, title, description }) => {
     </div>
   );
 };
-
-export default FeatureCard;

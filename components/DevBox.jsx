@@ -2,7 +2,7 @@ import React from "react";
 
 import Image from "next/image";
 
-export default function DevBox({
+export function DevBox({
   name,
   userName,
   description,

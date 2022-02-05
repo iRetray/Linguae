@@ -3,7 +3,7 @@ import React from "react";
 import { BiArrowBack } from "react-icons/bi";
 
 /* eslint-disable no-unused-vars */
-const GoBack = React.forwardRef(function GoBack(
+export const GoBack = React.forwardRef(function GoBack(
   { previousPageName, onClick },
   ref
 ) {
@@ -16,5 +16,3 @@ const GoBack = React.forwardRef(function GoBack(
     </div>
   );
 });
-
-export default GoBack;

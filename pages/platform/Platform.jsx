@@ -3,8 +3,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 
-import Card from "../../components/Card";
-import GoBack from "../../components/GoBack";
+import { Card, GoBack } from "../../components";
 
 import cardList from "../card.json";
 

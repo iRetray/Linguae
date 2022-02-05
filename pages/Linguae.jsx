@@ -5,9 +5,7 @@ import Link from "next/link";
 
 import { BsFillPlayFill } from "react-icons/bs";
 
-import Button from "../components/Button";
-import FeatureCard from "../components/FeatureCard";
-import Line from "../components/Line";
+import { Button, FeatureCard, Line } from "../components";
 
 export default function Linguae() {
   return (
