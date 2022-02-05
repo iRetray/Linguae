@@ -4,12 +4,12 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import DevBox from "../components/DevBox";
-import Button from "../components/Button";
-
 import { HiCode } from "react-icons/hi";
 import { BsTranslate, BsGear } from "react-icons/bs";
 import { VscChevronDown } from "react-icons/vsc";
+
+import { DevBox, Button } from "../components";
+
 import devsList from "./devs.json";
 
 export default function Linguae() {
