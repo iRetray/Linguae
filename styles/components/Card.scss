@@ -17,7 +17,6 @@
   .informationContainer {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
     .header {
       display: flex;
       justify-content: space-between;
@@ -59,10 +58,14 @@
     }
   }
   .mediaEncoder {
-    flex: 1 2 auto;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     background: #30363d;
+    .imageCard {
+      max-height: 190px;
+      border-bottom-right-radius: 6px;
+      border-top-right-radius: 6px;
+    }
   }
   .favorite {
     color: #fff;

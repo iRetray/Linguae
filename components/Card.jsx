@@ -3,9 +3,9 @@ import React from "react";
 /* import { Popover } from "antd" */
 import { AiFillStar } from "react-icons/ai";
 
-import { Video, Button } from ".";
+import { Button } from ".";
 
-export function Card({ type, englishValue, spanishValue, mediaEncode }) {
+export function Card({ type, englishValue, spanishValue, image }) {
   return (
     <div className="CardContainer">
       <div className="informationContainer">
@@ -37,7 +37,7 @@ export function Card({ type, englishValue, spanishValue, mediaEncode }) {
         </Popover>
       </div> */}
       <div className="mediaEncoder">
-        <Video mediaEncode={mediaEncode} />
+        <img className="imageCard" src={image} alt="" />
       </div>
     </div>
   );
