@@ -2,7 +2,11 @@ import React from "react";
 
 import { BiArrowBack } from "react-icons/bi";
 
-export default function GoBack({ previousPageName, onClick }) {
+/* eslint-disable no-unused-vars */
+const GoBack = React.forwardRef(function GoBack(
+  { previousPageName, onClick },
+  ref
+) {
   return (
     <div className="GoBackContainer" onClick={onClick}>
       <BiArrowBack size={18} color="#4c5759" />
@@ -11,4 +15,6 @@ export default function GoBack({ previousPageName, onClick }) {
       </h4>
     </div>
   );
-}
+});
+
+export default GoBack;

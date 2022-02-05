@@ -13,21 +13,19 @@ import firebaseConfig from "../services/firebaseConfig";
 import "antd/dist/antd.css";
 import "../styles/globals.scss";
 
-function FirebaseGlobalProvider(props) {
+function FirebaseGlobalProvider({ children }) {
   return (
     <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-      {props.children}
+      {children}
     </FirebaseAppProvider>
   );
 }
 
-function FirebaseSDKProvider(props) {
+function FirebaseSDKProvider({ children }) {
   const firestoneInstance = getFirestore(useFirebaseApp());
 
   return (
-    <FirestoreProvider sdk={firestoneInstance}>
-      {props.children}
-    </FirestoreProvider>
+    <FirestoreProvider sdk={firestoneInstance}>{children}</FirestoreProvider>
   );
 }
 

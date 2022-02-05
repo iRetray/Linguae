@@ -1,13 +1,10 @@
 import React from "react";
 
-export default function Button({
-  text,
-  icon,
-  onClick,
-  type,
-  isSmall,
-  isYellow,
-}) {
+/* eslint-disable no-unused-vars */
+const Button = React.forwardRef(function Button(
+  { text, icon, onClick, type, isSmall, isYellow },
+  ref
+) {
   return (
     <div
       className={`ButtonContainer ${type || "primary"} ${
@@ -19,4 +16,6 @@ export default function Button({
       <span style={{ marginLeft: icon && "10px" }}>{text}</span>
     </div>
   );
-}
+});
+
+export default Button;
