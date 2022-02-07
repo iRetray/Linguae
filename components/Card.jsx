@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 /* import { Popover } from "antd" */
@@ -22,7 +23,17 @@ export function Card({ type, englishValue, spanishValue, image }) {
           <span className="definition">{spanishValue}</span>
         </div>
       </div>
-      <img className="imageCard" src={image} alt="" />
+      <div className="imageCard">
+        <Image
+          src={`/api/imageProxy?url=${encodeURIComponent(image)}`}
+          blurDataURL={`/api/imageProxy?url=${encodeURIComponent(image)}`}
+          placeholder="blur"
+          width="400px"
+          height="320px"
+          objectFit="cover"
+          alt="Related word image"
+        />
+      </div>
     </div>
   );
 }

@@ -6,6 +6,14 @@ import Link from "next/link";
 import { BsFillPlayFill } from "react-icons/bs";
 
 import { Button, FeatureCard, Line } from "../components";
+import Image from "next/image";
+
+import introLogo from "../public/images/introLogo.png";
+import book from "../public/images/book.png";
+import share from "../public/images/share.png";
+import peopleTalking from "../public/images/peopleTalking.png";
+import github from "../public/images/github.png";
+import freepik from "../public/images/freepik.svg";
 
 export default function Linguae() {
   return (
@@ -15,7 +23,9 @@ export default function Linguae() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="ContentsContainer">
-        <img src="/images/introLogo.png" className="logoImage" />
+        <div className="logoImage">
+          <Image src={introLogo} alt="Picture of the author" />
+        </div>
         <div className="textContainer">
           <p className="title">Linguae</p>
           <p className="description">
@@ -30,17 +40,17 @@ export default function Linguae() {
       <Line />
       <div className="FeaturesSection">
         <FeatureCard
-          imageURL="/images/book.png"
+          imageObject={book}
           title="Learn new words everyday"
           description="Phrasal verbs, idioms and native expressions"
         />
         <FeatureCard
-          imageURL="/images/share.png"
+          imageObject={share}
           title="Contribute to the community"
           description="Be part of the shared knowledge"
         />
         <FeatureCard
-          imageURL="/images/peopleTalking.png"
+          imageObject={peopleTalking}
           title="Improve your english skills"
           description="Continuous and personalized learning"
         />
@@ -48,13 +58,17 @@ export default function Linguae() {
       <div className="FooterContainer">
         <a href="https://github.com/iRetray/Linguae">
           <div className="githubProject">
-            <img src="/images/github.png" alt="GitHubLogo" />
+            <div className="imageContainer">
+              <Image src={github} alt="GitHub Project" />
+            </div>
             <span>Linguae project v0.6.2</span>
           </div>
         </a>
         <a href="https://www.freepik.es/">
           <div className="freepikContrubutor">
-            <img className="logo" src="/images/freepik.svg" />
+            <div className="logo">
+              <Image src={freepik} alt="Frepik website" />
+            </div>
             <span>Multimedia contents provider</span>
           </div>
         </a>
