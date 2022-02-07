@@ -4,12 +4,12 @@
   display: flex;
   justify-content: center;
   border-radius: 6px;
-  -webkit-box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 11px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 30%);
   flex-wrap: wrap;
-  width: min-content;
+  width: -webkit-fill-available;
   height: -webkit-fill-available;
   margin: 15px;
+  max-width: 315px;
   .informationContainer {
     display: flex;
     flex-direction: column;

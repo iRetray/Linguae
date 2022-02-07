@@ -5,7 +5,7 @@ export const FeatureCard = ({ imageObject, title, description }) => {
   return (
     <div className="FeatureContainer">
       <div className="image">
-        <Image src={imageObject} alt="Feature image" />
+        <Image src={imageObject} placeholder="blur" alt="Feature image" />
       </div>
       <div className="textContents">
         <p className="title">{title}</p>

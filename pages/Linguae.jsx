@@ -24,7 +24,11 @@ export default function Linguae() {
       </Head>
       <div className="ContentsContainer">
         <div className="logoImage">
-          <Image src={introLogo} alt="Picture of the author" />
+          <Image
+            src={introLogo}
+            placeholder="blur"
+            alt="Picture of the author"
+          />
         </div>
         <div className="textContainer">
           <p className="title">Linguae</p>

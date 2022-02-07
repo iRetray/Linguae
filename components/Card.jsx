@@ -28,8 +28,8 @@ export function Card({ type, englishValue, spanishValue, image }) {
           src={`/api/imageProxy?url=${encodeURIComponent(image)}`}
           blurDataURL={`/api/imageProxy?url=${encodeURIComponent(image)}`}
           placeholder="blur"
-          width="400px"
-          height="320px"
+          width="800px"
+          height="800px"
           objectFit="cover"
           alt="Related word image"
         />
