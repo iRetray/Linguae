@@ -6,6 +6,7 @@ import Link from "next/link";
 import { collection, query } from "firebase/firestore";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 
+import { BiImageAdd } from "react-icons/bi";
 import { Card, GoBack, Loader } from "../../components";
 
 export default function Platform() {
@@ -33,6 +34,12 @@ export default function Platform() {
           ))}
         </div>
       )}
+      <Link href="/addContent" passHref={true}>
+        <div className="addContentContainer">
+          <BiImageAdd className="addIcon" />
+          <span>Add content</span>
+        </div>
+      </Link>
     </div>
   );
 }

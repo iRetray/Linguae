@@ -11,10 +11,10 @@ const AddContent = () => {
       <Head>
         <title>Linguage | Add content</title>
       </Head>
-      <Link href="/" passHref={true}>
-        <GoBack previousPageName="Home" />
+      <Link href="/platform" passHref={true}>
+        <GoBack previousPageName="Platform" />
       </Link>
-      <h1>Creating new content</h1>
+      <h1>Create new content</h1>
     </div>
   );
 };
