@@ -1,7 +1,5 @@
 import React from "react";
 
-import { NextUIProvider } from "@nextui-org/react";
-
 import {
   FirebaseAppProvider,
   FirestoreProvider,
@@ -35,11 +33,9 @@ function Linguae({ Component, pageProps }) {
   return (
     <FirebaseGlobalProvider>
       <FirebaseSDKProvider>
-        <NextUIProvider disableBaseline={true}>
-          <IconContext.Provider value={{ size: "23" }}>
-            <Component {...pageProps} />
-          </IconContext.Provider>
-        </NextUIProvider>
+        <IconContext.Provider value={{ size: "23" }}>
+          <Component {...pageProps} />
+        </IconContext.Provider>
       </FirebaseSDKProvider>
     </FirebaseGlobalProvider>
   );

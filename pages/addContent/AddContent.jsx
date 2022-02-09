@@ -7,18 +7,18 @@ import Image from "next/image";
 import { GoBack } from "../../components";
 
 import unsplashService from "../../services/unsplashService";
-
-import { Input } from "@nextui-org/react";
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
 
 const AddContent = () => {
   const [imageList, setImageList] = useState(null);
+
   const {
     register,
     handleSubmit,
     /* formState: { errors, isValid }, */
     getValues,
+    setValue,
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
@@ -30,6 +30,13 @@ const AddContent = () => {
     });
   };
 
+  const handleClickImage = (url) => {
+    setValue("newContent.image", url);
+  };
+
+  const saveNewContent = () => {
+    console.log(getValues("newContent"));
+  };
   return (
     <div className="AddContentContainer">
       <Head>
@@ -42,15 +49,25 @@ const AddContent = () => {
       <div className="formContainer">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="inputForm">
-            <Input
-              {...register("search")}
+            <input
+              {...register("newContent.englishValue")}
               id="englishValue"
-              label="Search by word"
-              shadow={false}
-              size="md"
-              bordered
-              animated={false}
+              placeholder="Value in English"
             />
+
+            <input
+              {...register("newContent.spanishhValue")}
+              id="spanishhValue"
+              placeholder="Value in Spanish"
+            />
+
+            <select {...register("newContent.type")}>
+              <option value="WORD">Word</option>
+              <option value="PHRASAL">Phrasal Verb</option>
+            </select>
+
+            <input {...register("search")} id="search" placeholder="Search" />
+
             <div className="searchButton" onClick={searchImage}>
               <BiSearchAlt className="searchIcon" />
             </div>
@@ -61,7 +78,11 @@ const AddContent = () => {
         {imageList &&
           Array.isArray(imageList) &&
           imageList.map(({ urls }, index) => (
-            <div key={index} className="imageContainer">
+            <div
+              key={index}
+              className="imageContainer"
+              onClick={() => handleClickImage(urls.regular)}
+            >
               <Image
                 src={`/api/imageProxy?url=${encodeURIComponent(urls.regular)}`}
                 blurDataURL={`/api/imageProxy?url=${encodeURIComponent(
@@ -76,6 +97,7 @@ const AddContent = () => {
             </div>
           ))}
       </div>
+      <button onClick={saveNewContent}>Save</button>
     </div>
   );
 };
