@@ -10,18 +10,20 @@ import unsplashService from "../../services/unsplashService";
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
 
+import { collection, addDoc } from "firebase/firestore";
+import { useFirestore } from "reactfire";
+
 const AddContent = () => {
+  const firestore = useFirestore();
+  const cardsCollection = collection(firestore, "cards");
   const [imageList, setImageList] = useState(null);
 
   const {
     register,
-    handleSubmit,
     /* formState: { errors, isValid }, */
     getValues,
     setValue,
   } = useForm();
-
-  const onSubmit = (data) => console.log(data);
 
   const searchImage = () => {
     setImageList([]);
@@ -35,8 +37,15 @@ const AddContent = () => {
   };
 
   const saveNewContent = () => {
-    console.log(getValues("newContent"));
+    addDoc(cardsCollection, getValues("newContent"))
+      .then(({ id }) => {
+        console.log("Document written with ID: ", id);
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
   };
+
   return (
     <div className="AddContentContainer">
       <Head>
@@ -47,33 +56,30 @@ const AddContent = () => {
       </Link>
       <h1>Create new content</h1>
       <div className="formContainer">
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form>
           <div className="inputForm">
             <input
               {...register("newContent.englishValue")}
               id="englishValue"
               placeholder="Value in English"
             />
-
             <input
-              {...register("newContent.spanishhValue")}
-              id="spanishhValue"
+              {...register("newContent.spanishValue")}
+              id="spanishValue"
               placeholder="Value in Spanish"
             />
-
             <select {...register("newContent.type")}>
               <option value="WORD">Word</option>
               <option value="PHRASAL">Phrasal Verb</option>
             </select>
-
             <input {...register("search")} id="search" placeholder="Search" />
-
             <div className="searchButton" onClick={searchImage}>
               <BiSearchAlt className="searchIcon" />
             </div>
           </div>
         </form>
       </div>
+      <button onClick={saveNewContent}>Save</button>
       <div className="imagesGeneralContainer">
         {imageList &&
           Array.isArray(imageList) &&
@@ -97,7 +103,6 @@ const AddContent = () => {
             </div>
           ))}
       </div>
-      <button onClick={saveNewContent}>Save</button>
     </div>
   );
 };
