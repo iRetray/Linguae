@@ -55,6 +55,9 @@ const AddContent = () => {
         <GoBack previousPageName="Platform" />
       </Link>
       <h1>Create new content</h1>
+      <div style={{ margin: "20px", fontSize: "20px" }}>
+        <strong>This section is in progress yet, take a look later!</strong> 😉
+      </div>
       <div className="formContainer">
         <form>
           <div className="inputForm">
