@@ -12,13 +12,20 @@ import { BiSearchAlt } from "react-icons/bi";
 
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
+import { ErrorMessage } from "@hookform/error-message";
 
 const AddContent = () => {
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
   const [imageList, setImageList] = useState(null);
 
-  const { register, getValues, setValue } = useForm();
+  const {
+    register,
+    getValues,
+    formState: { errors },
+    setValue,
+    handleSubmit,
+  } = useForm();
 
   const searchImage = () => {
     setImageList([]);
@@ -29,10 +36,6 @@ const AddContent = () => {
 
   const handleClickImage = (url) => {
     setValue("newContent.image", url);
-  };
-
-  const handleChangeEnglish = (word) => {
-    console.log(word);
   };
 
   const saveNewContent = () => {
@@ -57,45 +60,61 @@ const AddContent = () => {
       <div style={{ margin: "20px", fontSize: "20px" }}>
         <strong>This section is in progress yet, take a look later!</strong> 😉
       </div>
-      <div className="formContainer">
-        <div className="flex flex-start">
-          <input
-            {...register("newContent.englishValue")}
-            id="englishValue"
-            className="margin-r-20 input"
-            placeholder="Value in English"
-          />
-          <input
-            {...register("newContent.spanishValue")}
-            id="spanishValue"
-            className="margin-r-20 input"
-            placeholder="Value in Spanish"
-          />
-          <select
-            {...register("newContent.type")}
-            className="margin-r-20 input"
-          >
-            <option value="WORD">Word</option>
-            <option value="PHRASAL">Phrasal Verb</option>
-          </select>
-        </div>
-        <div className="flex">
-          <input
-            {...register("search")}
-            id="search"
-            placeholder="Search"
-            className="input"
-          />
-          <div className="searchButton" onClick={searchImage}>
-            <BiSearchAlt className="searchIcon" />
+      <form onSubmit={handleSubmit(saveNewContent)}>
+        <div className="formContainer">
+          <div className="flex flex-start">
+            <input
+              {...register("newContent.englishValue", {
+                required: "This is required.",
+              })}
+              id="englishValue"
+              className="margin-r-20 input"
+              placeholder="Value in English"
+            />
+            <ErrorMessage
+              errors={errors}
+              as="span"
+              name="newContent.englishValue"
+            />
+            <input
+              {...register("newContent.spanishValue", {
+                required: "This is required.",
+              })}
+              id="spanishValue"
+              className="margin-r-20 input"
+              placeholder="Value in Spanish"
+            />
+            <ErrorMessage errors={errors} name="newContent.spanishValue" />
+            <select
+              {...register("newContent.type", {
+                required: "This is required.",
+              })}
+              className="margin-r-20 input"
+            >
+              <option value="WORD">Word</option>
+              <option value="PHRASAL">Phrasal Verb</option>
+            </select>
+            <ErrorMessage errors={errors} name="newContent.type" />
+          </div>
+          <div className="flex">
+            <input
+              {...register("search", {
+                required: "This is required.",
+              })}
+              id="search"
+              placeholder="Search"
+              className="input"
+            />
+            <ErrorMessage errors={errors} name="search" />
+            <div className="searchButton" onClick={searchImage}>
+              <BiSearchAlt className="searchIcon" />
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <button className="button-blue" onClick={saveNewContent}>
-          Save
-        </button>
-      </div>
+        <div>
+          <button type="submit">Saveeee</button>
+        </div>
+      </form>
 
       <div className="imagesGeneralContainer">
         {imageList &&
