@@ -94,10 +94,6 @@ const AddContent = () => {
             >
               <Image
                 src={`/api/imageProxy?url=${encodeURIComponent(urls.regular)}`}
-                blurDataURL={`/api/imageProxy?url=${encodeURIComponent(
-                  urls.regular
-                )}`}
-                placeholder="blur"
                 width="800px"
                 height="800px"
                 objectFit="cover"
