@@ -17,6 +17,22 @@
     justify-content: space-between;
     padding-bottom: 20px;
     flex-flow: wrap;
+    .englishValue {
+      display: flex;
+      flex-direction: column;
+      max-width: 250px;
+      .translatedText {
+        margin: 10px;
+        font-size: 12px;
+        line-height: 15px;
+        .buttonUse {
+          display: block;
+          cursor: pointer;
+          font-weight: bold;
+          color: $blueMedium;
+        }
+      }
+    }
     .inputForm {
       display: flex;
       padding: 15px;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -7,6 +7,8 @@ import Image from "next/image";
 import { GoBack } from "../../components";
 
 import unsplashService from "../../services/unsplashService";
+import translateService from "../../services/translateService";
+
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
 
@@ -16,6 +18,8 @@ import { useFirestore } from "reactfire";
 const AddContent = () => {
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
+
+  const [sentence, setSentence] = useState("");
   const [imageList, setImageList] = useState(null);
 
   const { register, getValues, setValue } = useForm();
@@ -31,8 +35,14 @@ const AddContent = () => {
     setValue("newContent.image", url);
   };
 
-  const handleChangeEnglish = (word) => {
-    console.log(word);
+  const handleBlurEnglish = ({ target }) => {
+    if (target.value !== "") {
+      translateService.translate(target.value).then(({ translatedText }) => {
+        setSentence(translatedText);
+      });
+    } else {
+      setSentence("");
+    }
   };
 
   const saveNewContent = () => {
@@ -59,15 +69,33 @@ const AddContent = () => {
       </div>
       <div className="formContainer">
         <div className="flex flex-start">
-          <input
-            {...register("newContent.englishValue")}
-            id="englishValue"
-            className="margin-r-20 input"
-            placeholder="Value in English"
-          />
-          <input
+          <div className="englishValue">
+            <textarea
+              {...register("newContent.englishValue")}
+              id="englishValue"
+              autoComplete="off"
+              className="margin-r-20 input"
+              placeholder="Value in English"
+              onBlur={handleBlurEnglish}
+            />
+            <span className="translatedText">
+              {sentence}
+              <span
+                className="buttonUse"
+                hidden={sentence === ""}
+                onClick={() => {
+                  setValue("newContent.spanishValue", sentence);
+                }}
+              >
+                {" "}
+                Use this value as Spanish value
+              </span>
+            </span>
+          </div>
+          <textarea
             {...register("newContent.spanishValue")}
             id="spanishValue"
+            autoComplete="off"
             className="margin-r-20 input"
             placeholder="Value in Spanish"
           />
