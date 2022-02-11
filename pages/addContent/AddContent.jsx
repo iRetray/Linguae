@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -18,12 +18,7 @@ const AddContent = () => {
   const cardsCollection = collection(firestore, "cards");
   const [imageList, setImageList] = useState(null);
 
-  const {
-    register,
-    /* formState: { errors, isValid }, */
-    getValues,
-    setValue,
-  } = useForm();
+  const { register, getValues, setValue } = useForm();
 
   const searchImage = () => {
     setImageList([]);
@@ -34,6 +29,10 @@ const AddContent = () => {
 
   const handleClickImage = (url) => {
     setValue("newContent.image", url);
+  };
+
+  const handleChangeEnglish = (word) => {
+    console.log(word);
   };
 
   const saveNewContent = () => {
@@ -59,30 +58,45 @@ const AddContent = () => {
         <strong>This section is in progress yet, take a look later!</strong> 😉
       </div>
       <div className="formContainer">
-        <form>
-          <div className="inputForm">
-            <input
-              {...register("newContent.englishValue")}
-              id="englishValue"
-              placeholder="Value in English"
-            />
-            <input
-              {...register("newContent.spanishValue")}
-              id="spanishValue"
-              placeholder="Value in Spanish"
-            />
-            <select {...register("newContent.type")}>
-              <option value="WORD">Word</option>
-              <option value="PHRASAL">Phrasal Verb</option>
-            </select>
-            <input {...register("search")} id="search" placeholder="Search" />
-            <div className="searchButton" onClick={searchImage}>
-              <BiSearchAlt className="searchIcon" />
-            </div>
+        <div className="flex flex-start">
+          <input
+            {...register("newContent.englishValue")}
+            id="englishValue"
+            className="margin-r-20 input"
+            placeholder="Value in English"
+          />
+          <input
+            {...register("newContent.spanishValue")}
+            id="spanishValue"
+            className="margin-r-20 input"
+            placeholder="Value in Spanish"
+          />
+          <select
+            {...register("newContent.type")}
+            className="margin-r-20 input"
+          >
+            <option value="WORD">Word</option>
+            <option value="PHRASAL">Phrasal Verb</option>
+          </select>
+        </div>
+        <div className="flex">
+          <input
+            {...register("search")}
+            id="search"
+            placeholder="Search"
+            className="input"
+          />
+          <div className="searchButton" onClick={searchImage}>
+            <BiSearchAlt className="searchIcon" />
           </div>
-        </form>
+        </div>
       </div>
-      <button onClick={saveNewContent}>Save</button>
+      <div>
+        <button className="button-blue" onClick={saveNewContent}>
+          Save
+        </button>
+      </div>
+
       <div className="imagesGeneralContainer">
         {imageList &&
           Array.isArray(imageList) &&

@@ -14,6 +14,9 @@
   .formContainer {
     margin-top: 40px;
     display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    flex-flow: wrap;
     .inputForm {
       display: flex;
       padding: 15px;
