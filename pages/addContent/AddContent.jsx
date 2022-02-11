@@ -11,6 +11,7 @@ import translateService from "../../services/translateService";
 
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
+import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
@@ -20,6 +21,7 @@ const AddContent = () => {
   const cardsCollection = collection(firestore, "cards");
 
   const [sentence, setSentence] = useState("");
+  const [selectedPicture, setSelectedPicture] = useState("");
   const [imageList, setImageList] = useState(null);
 
   const { register, getValues, setValue } = useForm();
@@ -31,8 +33,9 @@ const AddContent = () => {
     });
   };
 
-  const handleClickImage = (url) => {
-    setValue("newContent.image", url);
+  const handleClickImage = ({ URL, id }) => {
+    setValue("newContent.image", URL);
+    setSelectedPicture(id);
   };
 
   const handleBlurEnglish = ({ target }) => {
@@ -64,34 +67,32 @@ const AddContent = () => {
         <GoBack previousPageName="Platform" />
       </Link>
       <h1>Create new content</h1>
-      <div style={{ margin: "20px", fontSize: "20px" }}>
-        <strong>This section is in progress yet, take a look later!</strong> 😉
-      </div>
       <div className="formContainer">
-        <div className="flex flex-start">
-          <div className="englishValue">
-            <textarea
-              {...register("newContent.englishValue")}
-              id="englishValue"
-              autoComplete="off"
-              className="margin-r-20 input"
-              placeholder="Value in English"
-              onBlur={handleBlurEnglish}
-            />
-            <span className="translatedText">
-              {sentence}
-              <span
-                className="buttonUse"
-                hidden={sentence === ""}
-                onClick={() => {
-                  setValue("newContent.spanishValue", sentence);
-                }}
-              >
-                {" "}
-                Use this value as Spanish value
-              </span>
+        <div className="englishValue inputSection">
+          <span className="label">English value</span>
+          <textarea
+            {...register("newContent.englishValue")}
+            id="englishValue"
+            autoComplete="off"
+            className="margin-r-20 input"
+            placeholder="Value in English"
+            onBlur={handleBlurEnglish}
+          />
+          <span className="translatedText" hidden={sentence === ""}>
+            {sentence}
+            <span
+              className="buttonUse"
+              onClick={() => {
+                setValue("newContent.spanishValue", sentence);
+              }}
+            >
+              {" "}
+              Use this value as Spanish value
             </span>
-          </div>
+          </span>
+        </div>
+        <div className="inputSection">
+          <span className="label">Spanish value</span>
           <textarea
             {...register("newContent.spanishValue")}
             id="spanishValue"
@@ -99,50 +100,65 @@ const AddContent = () => {
             className="margin-r-20 input"
             placeholder="Value in Spanish"
           />
+        </div>
+        <div className="inputSection">
+          <span className="label">Type of word</span>
           <select
             {...register("newContent.type")}
             className="margin-r-20 input"
           >
             <option value="WORD">Word</option>
             <option value="PHRASAL">Phrasal Verb</option>
+            <option value="PHRASAL">Idiom</option>
           </select>
         </div>
-        <div className="flex">
-          <input
-            {...register("search")}
-            id="search"
-            placeholder="Search"
-            className="input"
-          />
-          <div className="searchButton" onClick={searchImage}>
-            <BiSearchAlt className="searchIcon" />
+        <div className="inputSection">
+          <span className="label">Search a picture</span>
+          <div style={{ display: "flex" }}>
+            <input
+              {...register("search")}
+              style={{ width: "-webkit-fill-available" }}
+              id="search"
+              autoComplete="off"
+              placeholder="Search"
+              className="input"
+            />
+            <div className="searchButton" onClick={searchImage}>
+              <BiSearchAlt className="searchIcon" />
+            </div>
           </div>
         </div>
       </div>
-      <div>
-        <button className="button-blue" onClick={saveNewContent}>
-          Save
-        </button>
-      </div>
-
       <div className="imagesGeneralContainer">
         {imageList &&
           Array.isArray(imageList) &&
-          imageList.map(({ urls }, index) => (
+          imageList.map(({ id, urls }, index) => (
             <div
               key={index}
-              className="imageContainer"
-              onClick={() => handleClickImage(urls.regular)}
+              className={
+                selectedPicture === id
+                  ? "imageContainer selected"
+                  : "imageContainer"
+              }
+              onClick={() => handleClickImage({ URL: urls.regular, id })}
             >
+              <div className="checkIcon" hidden={selectedPicture !== id}>
+                <BsFillCheckCircleFill color="#004e89" />
+              </div>
               <Image
                 src={`/api/imageProxy?url=${encodeURIComponent(urls.regular)}`}
-                width="800px"
+                width="1000px"
                 height="800px"
                 objectFit="cover"
                 alt="Searched image"
               />
             </div>
           ))}
+      </div>
+      <div className="centerButton">
+        <button className="button-blue" onClick={saveNewContent}>
+          Save new word
+        </button>
       </div>
     </div>
   );

@@ -15,12 +15,32 @@
     margin-top: 40px;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     flex-flow: wrap;
+    @media (max-width: $breakpointSmall) {
+      flex-direction: row;
+    }
+    .inputSection {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      @media (max-width: $breakpointSmall) {
+        width: -webkit-fill-available;
+      }
+    }
+    .label {
+      font-size: 14px;
+      font-weight: bold;
+      color: $blueMedium;
+    }
     .englishValue {
       display: flex;
       flex-direction: column;
       max-width: 250px;
+      @media (max-width: $breakpointSmall) {
+        width: -webkit-fill-available;
+        max-width: initial;
+      }
       .translatedText {
         margin: 10px;
         font-size: 12px;
@@ -57,10 +77,32 @@
     }
   }
   .imagesGeneralContainer {
+    margin-bottom: 15px;
     display: flex;
-    flex-wrap: wrap;
+    overflow-x: scroll;
     .imageContainer {
+      position: relative;
+      margin: 10px;
       max-width: 350px;
+      min-width: 250px;
+      &.selected {
+        padding: 10px;
+        padding-bottom: 0px !important;
+        border: 2px solid $blueMedium;
+        border-radius: 5px;
+      }
+      img {
+        border-radius: 5px;
+      }
+      .checkIcon {
+        position: absolute;
+        z-index: 2;
+        padding: 10px;
+      }
     }
   }
+}
+.centerButton {
+  display: flex;
+  align-self: center;
 }
