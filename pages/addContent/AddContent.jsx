@@ -125,11 +125,17 @@ const AddContent = () => {
             />
             <div className="searchButton" onClick={searchImage}>
               <BiSearchAlt className="searchIcon" />
+              <span>Search picture</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="imagesGeneralContainer">
+      <div
+        className="imagesGeneralContainer"
+        hidden={
+          !(imageList && Array.isArray(imageList) && imageList.length >= 1)
+        }
+      >
         {imageList &&
           Array.isArray(imageList) &&
           imageList.map(({ id, urls }, index) => (
