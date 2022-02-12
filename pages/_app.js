@@ -1,5 +1,7 @@
 import React from "react";
 
+import { UserProvider } from "../contexts";
+
 import {
   FirebaseAppProvider,
   FirestoreProvider,
@@ -34,7 +36,9 @@ function Linguae({ Component, pageProps }) {
     <FirebaseGlobalProvider>
       <FirebaseSDKProvider>
         <IconContext.Provider value={{ size: "23" }}>
-          <Component {...pageProps} />
+          <UserProvider>
+            <Component {...pageProps} />
+          </UserProvider>
         </IconContext.Provider>
       </FirebaseSDKProvider>
     </FirebaseGlobalProvider>
