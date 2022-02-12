@@ -12,6 +12,7 @@ import translateService from "../../services/translateService";
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { GrLogin } from "react-icons/gr";
 
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
@@ -67,6 +68,23 @@ const AddContent = () => {
         <GoBack previousPageName="Platform" />
       </Link>
       <h1>Create new content</h1>
+      <div className="createAccountSection">
+        <GrLogin className="userIcon" />
+        <span className="textContents">
+          <p className="message">
+            Do you want to<strong> create new contents?</strong>
+          </p>
+          <div className="links">
+            <Link href="/addContent" passHref={true}>
+              <span className="link">Create new account</span>
+            </Link>{" "}
+            or{" "}
+            <Link href="/addContent" passHref={true}>
+              <span className="link">Login</span>
+            </Link>
+          </div>
+        </span>
+      </div>
       <div className="formContainer">
         <div className="englishValue inputSection">
           <span className="label">English value</span>
@@ -74,7 +92,7 @@ const AddContent = () => {
             {...register("newContent.englishValue")}
             id="englishValue"
             autoComplete="off"
-            className="margin-r-20 input"
+            className="input"
             placeholder="Value in English"
             onBlur={handleBlurEnglish}
           />
@@ -86,7 +104,6 @@ const AddContent = () => {
                 setValue("newContent.spanishValue", sentence);
               }}
             >
-              {" "}
               Use this value as Spanish value
             </span>
           </span>
@@ -97,16 +114,13 @@ const AddContent = () => {
             {...register("newContent.spanishValue")}
             id="spanishValue"
             autoComplete="off"
-            className="margin-r-20 input"
+            className="input"
             placeholder="Value in Spanish"
           />
         </div>
         <div className="inputSection">
           <span className="label">Type of word</span>
-          <select
-            {...register("newContent.type")}
-            className="margin-r-20 input"
-          >
+          <select {...register("newContent.type")} className="input">
             <option value="WORD">Word</option>
             <option value="PHRASAL">Phrasal Verb</option>
             <option value="PHRASAL">Idiom</option>
