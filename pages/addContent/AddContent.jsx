@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -6,17 +6,21 @@ import Image from "next/image";
 
 import { GoBack } from "../../components";
 
+import { UserContext } from "../../contexts";
 import unsplashService from "../../services/unsplashService";
 
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { GrLogin } from "react-icons/gr";
 
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
 import Input from "../../components/Input";
 
 const AddContent = () => {
+  const [userState] = useContext(UserContext);
+
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
 
