@@ -26,16 +26,6 @@ h6 {
   justify-content: start;
 }
 
-.margin-r-20 {
-  margin-right: 20px;   
-}
-
-.input {
-  border-radius: 10px;  
-  border: 1px solid #9aa0a2;
-  padding: 8px;
-}
-
 .button-blue {
   border: 2px solid #004e89;
   background: #004e89;
@@ -55,6 +45,25 @@ a {
   box-sizing: border-box;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c4d0d9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @import "./pages/Linguae.scss";
 @import "./pages/DevsDashboard.scss";
 @import "./pages/Platform.scss";
@@ -67,3 +76,5 @@ a {
 @import "./components/FeatureCard.scss";
 @import "./components/Line.scss";
 @import "./components/Loader.scss";
+@import "./components/Error.scss";
+@import "./components/Input.scss";

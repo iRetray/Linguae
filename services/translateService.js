@@ -1,20 +1,23 @@
 import axios from "axios";
 
+const baseURL = "https://libretranslate.de/translate";
+
+const defaultHeaders = {
+  source: "en",
+  target: "es",
+};
+
 export default {
   translate(word) {
-    let data = {
-      q: word,
-      source: "en",
-      target: "es",
-    };
-
     return new Promise((resolve, reject) => {
       axios
-        .post(`https://libretranslate.de/translate`, data)
-        .then(function ({ data }) {
-          resolve(data);
+        .post(baseURL, { ...defaultHeaders, q: word })
+        .then(({ status, data }) => {
+          if (status === 200) {
+            resolve(data);
+          }
         })
-        .catch(function (error) {
+        .catch((error) => {
           reject(error);
         });
     });

@@ -26,8 +26,6 @@ export function Card({ type, englishValue, spanishValue, image }) {
       <div className="imageCard">
         <Image
           src={`/api/imageProxy?url=${encodeURIComponent(image)}`}
-          blurDataURL={`/api/imageProxy?url=${encodeURIComponent(image)}`}
-          placeholder="blur"
           width="800px"
           height="800px"
           objectFit="cover"

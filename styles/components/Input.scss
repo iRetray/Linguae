@@ -1,0 +1,12 @@
+.containerInput {
+    display: flex;
+    flex-direction: column;
+
+    textarea,input {
+        border-radius: 10px;
+        border: 1px solid #9aa0a2;
+        padding: 8px;
+        height: fit-content;
+        max-height: 150px;
+    }
+}
