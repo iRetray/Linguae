@@ -28,6 +28,9 @@ export default function Linguae() {
           property="og:image"
           content="https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png"
         />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="938" />
+        <meta property="og:image:height" content="507" />
       </Head>
       <div className="ContentsContainer">
         <div className="logoImage">
