@@ -22,7 +22,10 @@ export default function Linguae() {
         <title>Linguae</title>
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:title" content="Linguae" />
-        <meta property="og:type" content="website" />
+        <meta
+          property="og:description"
+          content="Learn and practice your english sharing your knowledge with the community"
+        />
         <meta property="og:url" content="https://linguae.vercel.app/" />
         <meta
           property="og:image"
