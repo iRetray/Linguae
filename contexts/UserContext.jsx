@@ -51,7 +51,7 @@ export const UserProvider = ({ children }) => {
     auth.onAuthStateChanged((user) => {
       UserDispatch({
         type: "SET_USER_LOGGED",
-        payload: { isLogged: true, ...user },
+        payload: { isLogged: user !== null, ...user },
       });
     });
   };
