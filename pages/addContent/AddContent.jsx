@@ -4,10 +4,11 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import { GoBack } from "../../components";
+import { GoBack, Input, Select } from "../../components";
 
 import { UserContext } from "../../contexts";
 import unsplashService from "../../services/unsplashService";
+import translateService from "../../services/translateService";
 
 import { useForm } from "react-hook-form";
 import { BiSearchAlt } from "react-icons/bi";
@@ -16,7 +17,6 @@ import { GrLogin } from "react-icons/gr";
 
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
-import Input from "../../components/Input";
 
 const AddContent = () => {
   const [userState] = useContext(UserContext);
@@ -48,8 +48,14 @@ const AddContent = () => {
     setSelectedPicture(id);
   };
 
-  const handleBlurEnglish = (result) => {
-    setSentence(result);
+  const handleBlurEnglishValue = ({ target }) => {
+    if (target.value !== "") {
+      translateService.translate(target.value).then(({ translatedText }) => {
+        setSentence(translatedText);
+      });
+    } else {
+      setSentence("");
+    }
   };
 
   const saveNewContent = () => {
@@ -78,14 +84,13 @@ const AddContent = () => {
           <div className="englishValue inputSection">
             <span className="label">English value</span>
             <Input
-              id="englishValue"
-              className="margin-r-20"
-              placeholder="Value in English"
-              handleChangeOnBlur={handleBlurEnglish}
               isTextArea
+              name="newContent.englishValue"
+              placeholder="e.g. Would"
+              handleBlur={handleBlurEnglishValue}
               register={register}
+              validationSchema={{ required: "This field is required" }}
               errors={errors}
-              newContent
             />
             <span className="translatedText" hidden={sentence === ""}>
               {sentence}
@@ -95,7 +100,6 @@ const AddContent = () => {
                   setValue("newContent.spanishValue", sentence);
                 }}
               >
-                {" "}
                 Use this value as Spanish value
               </span>
             </span>
@@ -103,41 +107,45 @@ const AddContent = () => {
           <div className="inputSection">
             <span className="label">Spanish value</span>
             <Input
-              id="spanishValue"
-              className="margin-r-20"
-              placeholder="Value in Spanish"
               isTextArea
+              name="newContent.spanishValue"
+              placeholder="e.g. Preferir"
               register={register}
+              validationSchema={{ required: "This field is required" }}
               errors={errors}
-              newContent
             />
           </div>
           <div className="inputSection">
             <span className="label">Type of word</span>
-            <select
-              {...register("newContent.type")}
-              className="margin-r-20 input"
-            >
-              <option value="WORD">Word</option>
-              <option value="PHRASAL">Phrasal Verb</option>
-              <option value="PHRASAL">Idiom</option>
-            </select>
+            <Select
+              options={[
+                {
+                  value: "WORD",
+                  text: "Word",
+                },
+                {
+                  value: "PHRASAL",
+                  text: "Phrasal Verb",
+                },
+                {
+                  value: "IDIOM",
+                  text: "Idiom",
+                },
+              ]}
+            />
           </div>
           <div className="inputSection">
             <span className="label">Search a picture</span>
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
               <Input
-                id="search"
+                name="search"
                 style={{ width: "-webkit-fill-available" }}
-                className="margin-r-20"
-                placeholder="Search"
+                placeholder="e.g. dog in the garden"
                 register={register}
                 errors={errors}
               />
-
               <div className="searchButton" onClick={searchImage}>
                 <BiSearchAlt className="searchIcon" />
-                <span>Search picture</span>
               </div>
             </div>
           </div>

@@ -1,17 +1,16 @@
 @import "../theme.scss";
 
-.InputContainer {
+.SelectContainer {
   display: flex;
   flex-direction: column;
-  textarea,
-  input {
+  select {
     margin-top: 5px;
+    background-color: white;
     border-radius: 5px;
     font-size: 20px;
     border: 2px solid #9aa0a2;
     padding: 10px;
     height: fit-content;
-    max-height: 150px;
     outline: none;
     resize: none;
     -webkit-transition: 0.5s;
