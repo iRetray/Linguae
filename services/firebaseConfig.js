@@ -1,7 +1,7 @@
 import process from "process";
 
 const firebaseConfig = {
-  apiKey: process.env.FIREBASE_KEY,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_KEY,
   authDomain: "linguae-a0c8d.firebaseapp.com",
   projectId: "linguae-a0c8d",
   storageBucket: "linguae-a0c8d.appspot.com",

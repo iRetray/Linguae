@@ -5,9 +5,11 @@ import { UserProvider } from "../contexts";
 import {
   FirebaseAppProvider,
   FirestoreProvider,
+  AuthProvider,
   useFirebaseApp,
 } from "reactfire";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { IconContext } from "react-icons";
 
 import firebaseConfig from "../services/firebaseConfig";
@@ -24,10 +26,14 @@ function FirebaseGlobalProvider({ children }) {
 }
 
 function FirebaseSDKProvider({ children }) {
-  const firestoneInstance = getFirestore(useFirebaseApp());
+  const firebaseApp = useFirebaseApp();
+  const firestoneInstance = getFirestore(firebaseApp);
+  const authInstance = getAuth(firebaseApp);
 
   return (
-    <FirestoreProvider sdk={firestoneInstance}>{children}</FirestoreProvider>
+    <AuthProvider sdk={authInstance}>
+      <FirestoreProvider sdk={firestoneInstance}>{children}</FirestoreProvider>
+    </AuthProvider>
   );
 }
 
