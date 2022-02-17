@@ -1,7 +1,7 @@
 import React from "react";
 
-import Head from "next/head";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 import { BsFillPlayFill } from "react-icons/bs";
 
@@ -18,23 +18,23 @@ import freepik from "../public/images/freepik.svg";
 export default function Linguae() {
   return (
     <div className="LinguaeContainer">
-      <Head>
-        <title>Linguae</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:title" content="Linguae" />
-        <meta
-          property="og:description"
-          content="Learn and practice your english sharing your knowledge with the community"
-        />
-        <meta property="og:url" content="https://linguae.vercel.app/" />
-        <meta
-          property="og:image"
-          content="https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png"
-        />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="938" />
-        <meta property="og:image:height" content="507" />
-      </Head>
+      <NextSeo
+        openGraph={{
+          type: "website",
+          url: "https://linguae.vercel.app/",
+          title: "Linguae",
+          description:
+            "Learn and practice your english sharing your knowledge with the community",
+          images: [
+            {
+              url: "https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png",
+              width: 938,
+              height: 507,
+              alt: "Linguae homepage",
+            },
+          ],
+        }}
+      />
       <div className="ContentsContainer">
         <div className="logoImage">
           <Image src={introLogo} alt="Picture of the author" />
