@@ -1,0 +1,57 @@
+@import "../theme.scss";
+
+.HeaderContainer {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  left: 0px;
+  background-color: #fff;
+  box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 30%);
+  padding: 10px 30px;
+  z-index: 3;
+  @media (max-width: $breakpointSmall) {
+    padding: 10px;
+  }
+  .LinguaeTitle {
+    font-family: monospace;
+    font-size: 40px;
+    display: flex;
+    letter-spacing: -2px;
+    flex-direction: column;
+    -webkit-background-clip: text;
+    color: #0000;
+    font-weight: bold;
+    background-image: linear-gradient(
+      81.84deg,
+      #09f -9.4%,
+      #a033ff 51.57%,
+      #ff5280 84.07%,
+      #ff7061 90.59%
+    );
+  }
+  .userContainer {
+    display: flex;
+    margin-right: 0px;
+    margin-left: auto;
+    align-items: center;
+    .textsContainer {
+      text-align: end;
+      .name {
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .email {
+        font-size: 12px;
+      }
+    }
+    .imageProfile {
+      margin-left: 10px;
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+}

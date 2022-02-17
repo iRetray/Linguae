@@ -4,7 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import { GoBack, Input, Select } from "../../components";
+import { GoBack, Input, Select, Header } from "../../components";
 
 import { UserContext } from "../../contexts";
 import unsplashService from "../../services/unsplashService";
@@ -74,6 +74,7 @@ const AddContent = () => {
       <Head>
         <title>Linguage | Add content</title>
       </Head>
+      <Header />
       <Link href="/platform" passHref={true}>
         <GoBack previousPageName="Platform" />
       </Link>

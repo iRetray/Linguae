@@ -7,7 +7,7 @@ import { collection, query } from "firebase/firestore";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 
 import { BiImageAdd } from "react-icons/bi";
-import { Card, GoBack, Loader } from "../../components";
+import { Card, GoBack, Loader, Header } from "../../components";
 
 export default function Platform() {
   const firestore = useFirestore();
@@ -21,6 +21,7 @@ export default function Platform() {
       <Head>
         <title>Linguage | Platform</title>
       </Head>
+      <Header />
       <Link href="/" passHref={true}>
         <GoBack previousPageName="Home" />
       </Link>
