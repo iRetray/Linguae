@@ -21,6 +21,13 @@ export default function Linguae() {
       <Head>
         <title>Linguae</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:title" content="Linguae" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://linguae.vercel.app/" />
+        <meta
+          property="og:image"
+          content="https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png"
+        />
       </Head>
       <div className="ContentsContainer">
         <div className="logoImage">
