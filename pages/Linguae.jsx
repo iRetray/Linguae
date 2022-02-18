@@ -19,6 +19,8 @@ export default function Linguae() {
   return (
     <Fragment>
       <NextSeo
+        title="Linguae"
+        description="Learn and practice your english sharing your knowledge with the community"
         openGraph={{
           type: "website",
           url: "https://linguae.vercel.app/",
