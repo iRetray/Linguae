@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import Link from "next/link";
 import { NextSeo } from "next-seo";
@@ -17,7 +17,7 @@ import freepik from "../public/images/freepik.svg";
 
 export default function Linguae() {
   return (
-    <div className="LinguaeContainer">
+    <Fragment>
       <NextSeo
         openGraph={{
           type: "website",
@@ -27,7 +27,7 @@ export default function Linguae() {
             "Learn and practice your english sharing your knowledge with the community",
           images: [
             {
-              url: "https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png",
+              url: "https://firebasestorage.googleapis.com/v0/b/linguae-a0c8d.appspot.com/o/linguaePage.png?alt=media&token=855d17c9-9178-40bc-a438-ed1be997bdbd",
               width: 938,
               height: 507,
               alt: "Linguae homepage",
@@ -35,57 +35,59 @@ export default function Linguae() {
           ],
         }}
       />
-      <div className="ContentsContainer">
-        <div className="logoImage">
-          <Image src={introLogo} alt="Picture of the author" />
-        </div>
-        <div className="textContainer">
-          <p className="title">Linguae</p>
-          <p className="description">
-            Learn and practice your english
-            <strong> sharing your knowledge</strong> with the community
-          </p>
-          <Link href="/platform" passHref={true}>
-            <Button text="Let's get started!" icon={<BsFillPlayFill />} />
-          </Link>
-        </div>
-      </div>
-      <Line />
-      <div className="FeaturesSection">
-        <FeatureCard
-          imageObject={book}
-          title="Learn new words everyday"
-          description="Phrasal verbs, idioms and native expressions"
-        />
-        <FeatureCard
-          imageObject={share}
-          title="Contribute to the community"
-          description="Be part of the shared knowledge"
-        />
-        <FeatureCard
-          imageObject={peopleTalking}
-          title="Improve your english skills"
-          description="Continuous and personalized learning"
-        />
-      </div>
-      <div className="FooterContainer">
-        <a href="https://github.com/iRetray/Linguae">
-          <div className="githubProject">
-            <div className="imageContainer">
-              <Image src={github} alt="GitHub Project" />
-            </div>
-            <span>Linguae project v0.6.2</span>
+      <div className="LinguaeContainer">
+        <div className="ContentsContainer">
+          <div className="logoImage">
+            <Image src={introLogo} alt="Picture of the author" />
           </div>
-        </a>
-        <a href="https://www.freepik.es/">
-          <div className="freepikContrubutor">
-            <div className="logo">
-              <Image src={freepik} alt="Frepik website" />
-            </div>
-            <span>Multimedia contents provider</span>
+          <div className="textContainer">
+            <p className="title">Linguae</p>
+            <p className="description">
+              Learn and practice your english
+              <strong> sharing your knowledge</strong> with the community
+            </p>
+            <Link href="/platform" passHref={true}>
+              <Button text="Let's get started!" icon={<BsFillPlayFill />} />
+            </Link>
           </div>
-        </a>
+        </div>
+        <Line />
+        <div className="FeaturesSection">
+          <FeatureCard
+            imageObject={book}
+            title="Learn new words everyday"
+            description="Phrasal verbs, idioms and native expressions"
+          />
+          <FeatureCard
+            imageObject={share}
+            title="Contribute to the community"
+            description="Be part of the shared knowledge"
+          />
+          <FeatureCard
+            imageObject={peopleTalking}
+            title="Improve your english skills"
+            description="Continuous and personalized learning"
+          />
+        </div>
+        <div className="FooterContainer">
+          <a href="https://github.com/iRetray/Linguae">
+            <div className="githubProject">
+              <div className="imageContainer">
+                <Image src={github} alt="GitHub Project" />
+              </div>
+              <span>Linguae project v0.6.2</span>
+            </div>
+          </a>
+          <a href="https://www.freepik.es/">
+            <div className="freepikContrubutor">
+              <div className="logo">
+                <Image src={freepik} alt="Frepik website" />
+              </div>
+              <span>Multimedia contents provider</span>
+            </div>
+          </a>
+        </div>
       </div>
-    </div>
+    </Fragment>
   );
 }
