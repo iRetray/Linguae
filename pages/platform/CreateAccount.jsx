@@ -1,19 +1,22 @@
 import React, { useContext } from "react";
 
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { UserContext } from "../../contexts";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import googleIcon from "../../public/images/google.png";
 
-const CreateAccount = () => {
+const CreateAccount = (props) => {
   const [, UserDispatch] = useContext(UserContext);
 
+  const router = useRouter();
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
+    props.closeModal();
     signInWithPopup(auth, provider)
       .then(({ user }) => {
         UserDispatch({
@@ -23,6 +26,7 @@ const CreateAccount = () => {
             ...user,
           },
         });
+        router.push("/addContent");
       })
       .catch((error) => {
         console.error({ error });
@@ -30,11 +34,11 @@ const CreateAccount = () => {
   };
 
   return (
-    <div className="createAccountSection">
+    <div className="createAccountSection" onClick={signInWithGoogle}>
       <p className="message">
         Do you want to<strong> create new contents?</strong>
       </p>
-      <div className="googleLoginContainer" onClick={signInWithGoogle}>
+      <div className="googleLoginContainer">
         <div className="googleIcon">
           <Image src={googleIcon} alt="Related word image" />
         </div>
