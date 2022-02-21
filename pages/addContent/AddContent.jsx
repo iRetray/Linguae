@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { GoBack, Input, Select, Header } from "../../components";
 
@@ -16,7 +17,12 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
 
+import { UserContext } from "../../contexts";
+
 const AddContent = () => {
+  const router = useRouter();
+  const [userState] = useContext(UserContext);
+
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
 
@@ -31,6 +37,13 @@ const AddContent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (!userState.isLogged) {
+      router.replace("/platform");
+      console.info("User without permissions to create contents");
+    }
+  }, [userState.isLogged]);
 
   const searchImage = () => {
     setImageList([]);
@@ -65,7 +78,7 @@ const AddContent = () => {
   };
 
   return (
-    <div className="AddContentContainer">
+    <div className="AddContentContainer" hidden={!userState.isLogged}>
       <Head>
         <title>Linguage | Add content</title>
       </Head>

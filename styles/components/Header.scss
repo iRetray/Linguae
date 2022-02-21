@@ -13,7 +13,7 @@
   padding: 10px 30px;
   z-index: 3;
   @media (max-width: $breakpointSmall) {
-    padding: 10px;
+    padding: 10px 20px;
   }
   .LinguaeTitle {
     font-family: monospace;
@@ -39,6 +39,9 @@
     align-items: center;
     .textsContainer {
       text-align: end;
+      @media (max-width: $breakpointSmall) {
+        display: none;
+      }
       .name {
         font-size: 15px;
         font-weight: bold;
@@ -53,5 +56,19 @@
         border-radius: 50%;
       }
     }
+  }
+}
+
+.closeSessionButton {
+  cursor: pointer;
+  background-color: $redNormal;
+  border-radius: 10px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  span {
+    margin-left: 5px;
   }
 }
