@@ -8,7 +8,7 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 import googleIcon from "../../public/images/google.png";
 
-const CreateAccount = (props) => {
+const CreateAccount = ({ closeModal }) => {
   const [, UserDispatch] = useContext(UserContext);
 
   const router = useRouter();
@@ -16,7 +16,7 @@ const CreateAccount = (props) => {
   const provider = new GoogleAuthProvider();
 
   const signInWithGoogle = () => {
-    props.closeModal();
+    closeModal();
     signInWithPopup(auth, provider)
       .then(({ user }) => {
         UserDispatch({
@@ -42,8 +42,7 @@ const CreateAccount = (props) => {
         <div className="googleIcon">
           <Image src={googleIcon} alt="Related word image" />
         </div>
-
-        <span>Create account with Google </span>
+        <span>Create account with Google</span>
       </div>
     </div>
   );
