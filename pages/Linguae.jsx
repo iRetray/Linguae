@@ -77,7 +77,7 @@ export default function Linguae() {
               <div className="imageContainer">
                 <Image src={github} alt="GitHub Project" />
               </div>
-              <span>Linguae project v0.6.2</span>
+              <span>Linguae project v2.3.7</span>
             </div>
           </a>
           <a href="https://www.freepik.es/">
