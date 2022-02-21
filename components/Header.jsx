@@ -37,11 +37,14 @@ const CloseSession = () => {
 };
 
 export const Header = () => {
+  const router = useRouter();
   const [userState] = useContext(UserContext);
 
   return (
     <div className="HeaderContainer">
-      <div className="LinguaeTitle">Linguae</div>
+      <div className="LinguaeTitle" onClick={() => router.replace("/")}>
+        Linguae
+      </div>
       <div className="userContainer" hidden={!userState.isLogged}>
         <div className="textsContainer">
           <p className="name">{userState.displayName}</p>

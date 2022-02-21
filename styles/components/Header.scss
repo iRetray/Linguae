@@ -16,6 +16,7 @@
     padding: 10px 20px;
   }
   .LinguaeTitle {
+    cursor: pointer;
     font-family: monospace;
     font-size: 40px;
     display: flex;
@@ -51,6 +52,7 @@
       }
     }
     .imageProfile {
+      cursor: pointer;
       margin-left: 10px;
       img {
         border-radius: 50%;
