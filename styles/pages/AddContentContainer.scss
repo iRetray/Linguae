@@ -170,7 +170,8 @@
   }
 
   .imagesGeneralContainer {
-    justify-content: end;
+    overflow-x: scroll;
+    flex-wrap: unset !important; 
     .imageContainer {
       margin: 1rem 0px 0px 1rem;
     }
