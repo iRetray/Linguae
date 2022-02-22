@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import { GoBack, Input, Select, Header } from "../../components";
 
@@ -16,7 +17,14 @@ import { BsFillCheckCircleFill } from "react-icons/bs";
 import { collection, addDoc } from "firebase/firestore";
 import { useFirestore } from "reactfire";
 
+import { UserContext } from "../../contexts";
+import { notification } from "antd";
+
 const AddContent = () => {
+  const router = useRouter();
+  const [userState] = useContext(UserContext);
+  const { isLogged, displayName, photoURL } = userState;
+
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
 
@@ -31,6 +39,13 @@ const AddContent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    if (!isLogged) {
+      router.replace("/platform");
+      console.info("User without permissions to create contents");
+    }
+  }, [isLogged]);
 
   const searchImage = () => {
     setImageList([]);
@@ -55,9 +70,20 @@ const AddContent = () => {
   };
 
   const saveNewContent = () => {
-    addDoc(cardsCollection, getValues("newContent"))
+    addDoc(cardsCollection, {
+      owner: displayName,
+      avatar: photoURL,
+      ...getValues("newContent"),
+    })
       .then(({ id }) => {
-        console.log("Document written with ID: ", id);
+        console.log("New document added written with ID: ", id);
+        notification.success({
+          message: "Card added",
+          placement: "bottomLeft",
+          description:
+            "The new word was added to our database, ¡take a look to the library of cards to show it!",
+        });
+        router.replace("/platform");
       })
       .catch((error) => {
         console.error("Error adding document: ", error);
@@ -65,7 +91,7 @@ const AddContent = () => {
   };
 
   return (
-    <div className="AddContentContainer">
+    <div className="AddContentContainer" hidden={!userState.isLogged}>
       <Head>
         <title>Linguage | Add content</title>
       </Head>

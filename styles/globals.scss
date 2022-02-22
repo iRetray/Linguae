@@ -64,6 +64,26 @@ a {
   background: #555;
 }
 
+.ant-popover-inner {
+  background-color: #fff;
+  background-clip: padding-box;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15) \9;
+  box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 30%);
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-message {
+  font-weight: bold !important;
+}
+
+.ant-notification-notice {
+  border-radius: 15px !important;
+}
+
+.ant-notification-notice-with-icon .ant-notification-notice-description {
+  line-height: 17px Im !important;
+}
+
 @import "./pages/Linguae.scss";
 @import "./pages/DevsDashboard.scss";
 @import "./pages/Platform.scss";
@@ -80,3 +100,4 @@ a {
 @import "./components/Input.scss";
 @import "./components/Select.scss";
 @import "./components/Header.scss";
+@import "./components/Modal.scss";

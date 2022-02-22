@@ -1,6 +1,12 @@
 @import "../theme.scss";
 
 .createAccountSection {
+  background-color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  width: fit-content;
+  padding: 40px;
+  margin: auto;
   cursor: pointer;
   .message {
     font-size: 19px;
