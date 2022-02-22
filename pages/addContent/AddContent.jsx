@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -75,113 +75,122 @@ const AddContent = () => {
       </Link>
       <h1>Create new content</h1>
       <form onSubmit={handleSubmit(saveNewContent)}>
-        <div className="formContainer">
-          <div className="englishValue inputSection">
-            <span className="label">English value</span>
-            <Input
-              isTextArea
-              name="newContent.englishValue"
-              placeholder="e.g. Would"
-              handleBlur={handleBlurEnglishValue}
-              register={register}
-              validationSchema={{ required: "This field is required" }}
-              errors={errors}
-            />
-            <span className="translatedText" hidden={sentence === ""}>
-              {sentence}
-              <span
-                className="buttonUse"
-                onClick={() => {
-                  setValue("newContent.spanishValue", sentence);
-                }}
-              >
-                Use this value as Spanish value
-              </span>
-            </span>
-          </div>
-          <div className="inputSection">
-            <span className="label">Spanish value</span>
-            <Input
-              isTextArea
-              name="newContent.spanishValue"
-              placeholder="e.g. Preferir"
-              register={register}
-              validationSchema={{ required: "This field is required" }}
-              errors={errors}
-            />
-          </div>
-          <div className="inputSection">
-            <span className="label">Type of word</span>
-            <Select
-              options={[
-                {
-                  value: "WORD",
-                  text: "Word",
-                },
-                {
-                  value: "PHRASAL",
-                  text: "Phrasal Verb",
-                },
-                {
-                  value: "IDIOM",
-                  text: "Idiom",
-                },
-              ]}
-            />
-          </div>
-          <div className="inputSection">
-            <span className="label">Search a picture</span>
-            <div style={{ display: "flex", alignItems: "center" }}>
+        <div className="addContentForm">
+          <div className="sideLeft">
+            <div className="englishValue inputSection">
+              <span className="label">English value</span>
               <Input
-                name="search"
-                style={{ width: "-webkit-fill-available" }}
-                placeholder="e.g. dog in the garden"
+                isTextArea
+                name="newContent.englishValue"
+                placeholder="e.g. Would"
+                handleBlur={handleBlurEnglishValue}
                 register={register}
+                validationSchema={{ required: "This field is required" }}
                 errors={errors}
               />
-              <div className="searchButton" onClick={searchImage}>
-                <BiSearchAlt className="searchIcon" />
-              </div>
+              <span className="translatedText" hidden={sentence === ""}>
+                {sentence}
+                <span
+                  className="buttonUse"
+                  onClick={() => {
+                    setValue("newContent.spanishValue", sentence);
+                  }}
+                >
+                  Use this value as Spanish value
+                </span>
+              </span>
+            </div>
+            <div className="inputSection">
+              <span className="label">Spanish value</span>
+              <Input
+                isTextArea
+                name="newContent.spanishValue"
+                placeholder="e.g. Preferir"
+                register={register}
+                validationSchema={{ required: "This field is required" }}
+                errors={errors}
+              />
+            </div>
+            <div className="inputSection">
+              <span className="label">Type of word</span>
+              <Select
+                options={[
+                  {
+                    value: "WORD",
+                    text: "Word",
+                  },
+                  {
+                    value: "PHRASAL",
+                    text: "Phrasal Verb",
+                  },
+                  {
+                    value: "IDIOM",
+                    text: "Idiom",
+                  },
+                ]}
+              />
+            </div>
+            <div>
+              <button type="submit" className="rectangleButton">
+                Save new word
+              </button>
             </div>
           </div>
-        </div>
-        <div
-          className="imagesGeneralContainer"
-          hidden={
-            !(imageList && Array.isArray(imageList) && imageList.length >= 1)
-          }
-        >
-          {imageList &&
-            Array.isArray(imageList) &&
-            imageList.map(({ id, urls }, index) => (
-              <div
-                key={index}
-                className={
-                  selectedPicture === id
-                    ? "imageContainer selected"
-                    : "imageContainer"
-                }
-                onClick={() => handleClickImage({ URL: urls.regular, id })}
-              >
-                <div className="checkIcon" hidden={selectedPicture !== id}>
-                  <BsFillCheckCircleFill color="#004e89" />
-                </div>
-                <Image
-                  src={`/api/imageProxy?url=${encodeURIComponent(
-                    urls.regular
-                  )}`}
-                  width="1000px"
-                  height="800px"
-                  objectFit="cover"
-                  alt="Searched image"
+          <div className="sideRight">
+            <div className="inputSection">
+              <span className="labelSearch">Search a picture</span>
+              <div className="searchContainer">
+                <Input
+                  name="search"
+                  style={{ width: "-webkit-fill-available" }}
+                  placeholder="e.g. dog in the garden"
+                  register={register}
+                  errors={errors}
+                  className="border-two-side"
                 />
+                <div className="searchButton" onClick={searchImage}>
+                  <BiSearchAlt className="searchIcon" />
+                </div>
               </div>
-            ))}
-        </div>
-        <div className="centerButton">
-          <button type="submit" className="button-blue">
-            Save new word
-          </button>
+            </div>
+            <div
+              className="imagesGeneralContainer"
+              hidden={
+                !(
+                  imageList &&
+                  Array.isArray(imageList) &&
+                  imageList.length >= 1
+                )
+              }
+            >
+              {imageList &&
+                Array.isArray(imageList) &&
+                imageList.map(({ id, urls }, index) => (
+                  <div
+                    key={index}
+                    className={
+                      selectedPicture === id
+                        ? "imageContainer selected"
+                        : "imageContainer"
+                    }
+                    onClick={() => handleClickImage({ URL: urls.regular, id })}
+                  >
+                    <div className="checkIcon" hidden={selectedPicture !== id}>
+                      <BsFillCheckCircleFill color="#004e89" />
+                    </div>
+                    <Image
+                      src={`/api/imageProxy?url=${encodeURIComponent(
+                        urls.regular
+                      )}`}
+                      width="1000px"
+                      height="800px"
+                      objectFit="cover"
+                      alt="Searched image"
+                    />
+                  </div>
+                ))}
+            </div>
+          </div>
         </div>
       </form>
     </div>

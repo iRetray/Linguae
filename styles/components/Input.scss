@@ -5,11 +5,10 @@
   flex-direction: column;
   textarea,
   input {
-    margin-top: 5px;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 16px;
     border: 2px solid #9aa0a2;
-    padding: 10px;
+    padding: 5px;
     height: fit-content;
     max-height: 150px;
     outline: none;
@@ -22,8 +21,13 @@
       border: 2px solid $blueLight !important;
     }
   }
+
+  .border-two-side {
+    border-radius: 5px 0px 0px 5px !important;
+  }
+
   .errorMessage {
-    margin: 5px;
+   
     font-size: 12px;
     font-weight: bold;
     color: red;

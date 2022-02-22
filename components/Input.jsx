@@ -8,6 +8,7 @@ export const Input = ({
   validationSchema,
   errors,
   handleBlur,
+  className,
 }) => {
   const getErrorByName = () => {
     return !name.includes(".")
@@ -26,6 +27,7 @@ export const Input = ({
           rows={3}
           onBlurCapture={handleBlur}
           placeholder={placeholder}
+          className={className}
           {...register(name, validationSchema)}
         />
       ) : (
@@ -33,6 +35,7 @@ export const Input = ({
           autoComplete="off"
           spellCheck="false"
           placeholder={placeholder}
+          className={className}
           {...register(name, validationSchema)}
         />
       )}

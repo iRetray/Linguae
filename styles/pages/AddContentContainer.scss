@@ -8,94 +8,103 @@
   flex-direction: column;
   margin: auto;
   margin-top: 70px;
-  padding-top: 30px;
-  @media (max-width: $breakpointSmall) {
-    padding: 40px 20px;
-  }
-  .formContainer {
-    margin-top: 20px;
+  padding: 30px;
+  .addContentForm {
     display: flex;
-    padding-bottom: 10px;
-    flex-flow: wrap;
-    align-items: flex-start;
-    @media (max-width: $breakpointSmall) {
-      flex-direction: row;
-    }
-    .inputSection {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 10px;
-      margin-right: 15px;
-      @media (max-width: $breakpointSmall) {
-        width: -webkit-fill-available;
-        margin-right: 0px;
-      }
-    }
-    .label {
-      font-size: 14px;
-      font-weight: bold;
-      color: $blueMedium;
-    }
-    .englishValue {
-      display: flex;
-      flex-direction: column;
-      max-width: 250px;
-      @media (max-width: $breakpointSmall) {
-        width: -webkit-fill-available;
-        max-width: initial;
-      }
-      .translatedText {
-        margin: 10px;
-        font-size: 12px;
-        line-height: 15px;
-        .buttonUse {
-          display: block;
-          cursor: pointer;
-          font-weight: bold;
-          color: $blueMedium;
-        }
-      }
-    }
-    .inputForm {
-      display: flex;
-      padding: 15px;
-      align-items: flex-end;
-      .errorMessage {
-        margin: 5px;
-        font-size: 12px;
+    justify-content: space-between;
+    margin-top: 1rem;
+  }
+
+  .sideLeft {
+    flex:auto ;
+  }
+
+  .sideRight {
+    width: 75%;
+    margin-left: 3%;
+  }
+
+  .inputSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  .label {
+    font-size: 14px;
+    font-weight: bold;
+    color: $blueMedium;
+  }
+  .englishValue {
+    display: flex;
+    flex-direction: column;    
+    .translatedText {
+      margin: 5px;
+      font-size: 12px;
+      line-height: 15px;
+      .buttonUse {
+        display: block;
+        cursor: pointer;
         font-weight: bold;
-        color: $redMedium;
-      }
-    }
-    .searchButton {
-      display: flex;
-      align-items: center;
-      background-color: $blueMedium;
-      color: white;
-      cursor: pointer;
-      padding: 10px;
-      border-radius: 50%;
-      width: fit-content;
-      height: fit-content;
-      display: flex;
-      margin: 0px 10px;
-      span {
-        padding: 0px 8px;
-        font-size: 12px;
-        font-weight: bold;
-        width: max-content;
+        color: $blueMedium;
       }
     }
   }
+  .inputForm {
+    display: flex;
+    padding: 15px;
+    align-items: flex-end;
+    .errorMessage {
+      margin: 5px;
+      font-size: 12px;
+      font-weight: bold;
+      color: $redMedium;
+    }
+  }
+
+  .searchContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: start;
+  }
+
+  .searchButton {
+    display: flex;
+    background-color: #004e89;
+    color: white;
+    cursor: pointer;
+    padding: 8px 5px;
+    border-radius: 0% 15% 15% 0%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content; 
+    span {
+      padding: 0px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      width: max-content;
+    }
+  }
+
+  .labelSearch {
+    font-size: 14px;
+    font-weight: bold;
+    color: $blueMedium;
+    text-align: end;
+  }
+
   .imagesGeneralContainer {
     margin-bottom: 15px;
     display: flex;
-    overflow-x: scroll;
+    justify-content: space-between;
+    flex-wrap: wrap;
     .imageContainer {
       position: relative;
-      margin: 10px;
-      max-width: 350px;
-      min-width: 250px;
+      margin-bottom: 1rem;
+      max-width: 270px;
+      min-width: 150px;
       &.selected {
         padding: 10px;
         padding-bottom: 0px !important;
@@ -121,4 +130,49 @@
 .centerButton {
   display: flex;
   align-self: center;
+}
+
+
+.rectangleButton {
+  border: 0;
+    background: #004e89;
+    border-radius: 6px;
+    padding: 6px 25px;
+    color: #ffffff;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+
+@media (max-width: $breakpointSmall) {
+  .AddContentContainer {
+    padding: 40px 20px;
+    .addContentForm  {
+      display: block !important;
+    }
+  }
+  .sideRight {
+    width: auto !important;
+    margin-top: 1rem;
+    padding-top:1rem ;
+  }
+
+  .inputSection {
+    width: -webkit-fill-available;
+    margin-right: 0px;
+  }
+
+  .englishValue {
+    width: -webkit-fill-available;
+    max-width: initial;
+  }
+
+  .imagesGeneralContainer {
+    justify-content: end;
+    .imageContainer {
+      margin: 1rem 0px 0px 1rem;
+    }
+  }
 }
