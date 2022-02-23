@@ -169,6 +169,7 @@
 @media (max-width: $breakpointSmall) {
   .AddContentContainer {
     padding: 40px 20px;
+    padding-top: 100px !important;
     .addContentForm {
       display: block !important;
     }
