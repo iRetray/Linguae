@@ -190,9 +190,18 @@
   .imagesGeneralContainer {
     overflow-x: scroll;
     flex-wrap: unset !important;
+    margin-left: -45px !important;
+    margin-right: -28px !important;
     .imageContainer {
       margin: 1rem 0px 0px 1rem;
     }
+  }
+  .loadMorePictures {
+    margin-left: 10px !important;
+    max-height: 120px !important;
+    font-size: 20px !important;
+    line-height: 15px !important;
+    margin-top: 17px !important;
   }
   .addContentForm {
     padding: 40px 20px;
