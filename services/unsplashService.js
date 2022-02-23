@@ -6,7 +6,11 @@ const unsplashAPI = createApi({
 });
 
 export default {
-  searchByWord(searchWord) {
-    return unsplashAPI.search.getPhotos({ query: searchWord });
+  searchByWord(searchWord, page, perPage) {
+    return unsplashAPI.search.getPhotos({
+      query: searchWord,
+      page,
+      perPage: perPage || 11,
+    });
   },
 };

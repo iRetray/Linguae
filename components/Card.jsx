@@ -19,6 +19,7 @@ export function Card({
       <div className="ownerSection" hidden={!owner}>
         <div className="avatarImage">
           <Image
+            loading="eager"
             src={`/api/imageProxy?url=${encodeURIComponent(avatar)}`}
             width="30px"
             height="30px"

@@ -58,6 +58,7 @@ export const Header = () => {
           <Badge style={{ marginTop: "10px" }} count={12} color="geekblue">
             <div className="imageProfile" hidden={!userState.photoURL}>
               <Image
+                loading="eager"
                 src={`/api/imageProxy?url=${encodeURIComponent(
                   userState.photoURL
                 )}`}

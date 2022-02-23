@@ -40,7 +40,7 @@ const CreateAccount = ({ closeModal }) => {
       </p>
       <div className="googleLoginContainer">
         <div className="googleIcon">
-          <Image src={googleIcon} alt="Related word image" />
+          <Image loading="eager" src={googleIcon} alt="Related word image" />
         </div>
         <span>Create account with Google</span>
       </div>

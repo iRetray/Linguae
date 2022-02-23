@@ -40,7 +40,11 @@ export default function Linguae() {
       <div className="LinguaeContainer">
         <div className="ContentsContainer">
           <div className="logoImage">
-            <Image src={introLogo} alt="Picture of the author" />
+            <Image
+              loading="eager"
+              src={introLogo}
+              alt="Picture of the author"
+            />
           </div>
           <div className="textContainer">
             <p className="title">Linguae</p>
@@ -75,7 +79,7 @@ export default function Linguae() {
           <a href="https://github.com/iRetray/Linguae">
             <div className="githubProject">
               <div className="imageContainer">
-                <Image src={github} alt="GitHub Project" />
+                <Image loading="eager" src={github} alt="GitHub Project" />
               </div>
               <span>Linguae project v2.3.7</span>
             </div>
@@ -83,7 +87,7 @@ export default function Linguae() {
           <a href="https://www.freepik.es/">
             <div className="freepikContrubutor">
               <div className="logo">
-                <Image src={freepik} alt="Frepik website" />
+                <Image loading="eager" src={freepik} alt="Frepik website" />
               </div>
               <span>Multimedia contents provider</span>
             </div>

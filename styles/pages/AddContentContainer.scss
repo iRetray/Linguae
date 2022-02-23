@@ -7,23 +7,20 @@
   justify-content: center;
   flex-direction: column;
   margin: auto;
-  margin-top: 70px;
   padding: 30px;
+  padding-top: 100px;
   .addContentForm {
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
   }
-
   .sideLeft {
-    flex:auto ;
+    flex: auto;
   }
-
   .sideRight {
     width: 75%;
     margin-left: 3%;
   }
-
   .inputSection {
     display: flex;
     flex-direction: column;
@@ -36,7 +33,7 @@
   }
   .englishValue {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     .translatedText {
       margin: 5px;
       font-size: 12px;
@@ -60,13 +57,11 @@
       color: $redMedium;
     }
   }
-
   .searchContainer {
     display: flex;
     justify-content: flex-end;
     align-items: start;
   }
-
   .searchButton {
     display: flex;
     background-color: #004e89;
@@ -79,7 +74,7 @@
     width: fit-content;
     height: -webkit-fit-content;
     height: -moz-fit-content;
-    height: fit-content; 
+    height: fit-content;
     span {
       padding: 0px 8px;
       font-size: 12px;
@@ -87,20 +82,22 @@
       width: max-content;
     }
   }
-
   .labelSearch {
     font-size: 14px;
     font-weight: bold;
     color: $blueMedium;
     text-align: end;
   }
-
   .imagesGeneralContainer {
     margin-bottom: 15px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    max-height: 65vh;
+    overflow: auto;
+    padding-right: 10px;
     .imageContainer {
+      cursor: pointer;
       position: relative;
       margin-bottom: 1rem;
       max-width: 270px;
@@ -125,53 +122,73 @@
         width: 35px;
       }
     }
+    .loadMorePictures {
+      display: flex;
+      background-color: #e1f1ff;
+      margin-left: 0px;
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 3px solid #0582f5;
+      cursor: pointer;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 27px;
+      text-align: center;
+      max-width: 270px;
+      max-height: 216px;
+      color: #0582f5;
+      .iconLoad {
+        height: 60px;
+        width: 60px;
+        color: #0582f5;
+      }
+      &:hover {
+        background-color: #d0e9ff;
+      }
+    }
   }
 }
 .centerButton {
   display: flex;
   align-self: center;
 }
-
-
 .rectangleButton {
   border: 0;
-    background: #004e89;
-    border-radius: 6px;
-    padding: 6px 25px;
-    color: #ffffff;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 1rem;
+  background: #004e89;
+  border-radius: 6px;
+  padding: 6px 25px;
+  color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 1rem;
 }
-
-
 
 @media (max-width: $breakpointSmall) {
   .AddContentContainer {
     padding: 40px 20px;
-    .addContentForm  {
+    .addContentForm {
       display: block !important;
     }
   }
   .sideRight {
     width: auto !important;
     margin-top: 1rem;
-    padding-top:1rem ;
+    padding-top: 1rem;
   }
-
   .inputSection {
     width: -webkit-fill-available;
     margin-right: 0px;
   }
-
   .englishValue {
     width: -webkit-fill-available;
     max-width: initial;
   }
-
   .imagesGeneralContainer {
     overflow-x: scroll;
-    flex-wrap: unset !important; 
+    flex-wrap: unset !important;
     .imageContainer {
       margin: 1rem 0px 0px 1rem;
     }

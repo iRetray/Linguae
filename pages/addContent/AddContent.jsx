@@ -11,7 +11,7 @@ import unsplashService from "../../services/unsplashService";
 import translateService from "../../services/translateService";
 
 import { useForm } from "react-hook-form";
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSearchAlt, BiCloudDownload } from "react-icons/bi";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { collection, addDoc } from "firebase/firestore";
@@ -28,6 +28,7 @@ const AddContent = () => {
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
 
+  const [currentPage, setCurrentPage] = useState(1);
   const [sentence, setSentence] = useState("");
   const [selectedPicture, setSelectedPicture] = useState("");
   const [imageList, setImageList] = useState(null);
@@ -49,14 +50,26 @@ const AddContent = () => {
 
   const searchImage = () => {
     setImageList([]);
-    unsplashService.searchByWord(getValues("search")).then(({ response }) => {
-      setImageList(response.results);
-    });
+    unsplashService
+      .searchByWord(getValues("search"), currentPage)
+      .then(({ response }) => {
+        setImageList(response.results);
+      });
   };
 
   const handleClickImage = ({ URL, id }) => {
     setValue("newContent.image", URL);
     setSelectedPicture(id);
+  };
+
+  const loadMorePictures = () => {
+    const picturesPerPage = 12;
+    setCurrentPage(currentPage + 1);
+    unsplashService
+      .searchByWord(getValues("search"), currentPage + 1, picturesPerPage)
+      .then(({ response }) => {
+        setImageList([...imageList, ...response.results]);
+      });
   };
 
   const handleBlurEnglishValue = ({ target }) => {
@@ -205,6 +218,7 @@ const AddContent = () => {
                       <BsFillCheckCircleFill color="#004e89" />
                     </div>
                     <Image
+                      loading="eager"
                       src={`/api/imageProxy?url=${encodeURIComponent(
                         urls.regular
                       )}`}
@@ -215,6 +229,12 @@ const AddContent = () => {
                     />
                   </div>
                 ))}
+              {imageList && Array.isArray(imageList) && (
+                <div className="loadMorePictures" onClick={loadMorePictures}>
+                  <BiCloudDownload className="iconLoad" />
+                  <span>Load more images</span>
+                </div>
+              )}
             </div>
           </div>
         </div>
