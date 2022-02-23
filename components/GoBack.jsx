@@ -11,7 +11,7 @@ export const GoBack = React.forwardRef(function GoBack(
     <div className="GoBackContainer" onClick={onClick}>
       <BiArrowBack size={18} color="#4c5759" />
       <h4 className="backText">
-        Go back to <i>{previousPageName}</i>
+        Go back <i>{previousPageName}</i>
       </h4>
     </div>
   );
