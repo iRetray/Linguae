@@ -1,0 +1,48 @@
+@import "../theme.scss";
+
+.ProfileContainer {
+  max-width: 1200px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 70px;
+  padding: 30px;
+  @media (max-width: $breakpointSmall) {
+    padding: 40px 20px;
+  }
+  .headerProfile {
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    .profilePicture {
+      max-width: 100px;
+      img {
+        border-radius: 10px;
+      }
+    }
+    .userName {
+      margin-left: 20px;
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .email {
+      margin-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      span {
+        margin-left: 10px;
+      }
+    }
+  }
+  .aditionalData {
+    .oneDate {
+      margin-top: 20px;
+      .title {
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -61,16 +61,33 @@
   }
 }
 
-.closeSessionButton {
-  cursor: pointer;
-  background-color: $redNormal;
-  border-radius: 10px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  color: white;
-  font-weight: bold;
-  span {
-    margin-left: 5px;
+.PopoverContainer {
+  .miProfile {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    span {
+      margin-left: 5px;
+    }
+  }
+  .closeSessionButton {
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: $redNormal;
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    span {
+      margin-left: 5px;
+    }
+  }
+  hr {
+    border-color: #f1f1f1;
   }
 }

@@ -10,10 +10,6 @@ export const UserContext = createContext({});
 
 const initialState = {
   isLogged: false,
-  name: "",
-  lastName: "",
-  nick: "",
-  avatar: "",
 };
 
 const userReducer = (state, { type, payload }) => {
