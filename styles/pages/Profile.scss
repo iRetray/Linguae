@@ -12,11 +12,17 @@
   @media (max-width: $breakpointSmall) {
     padding: 40px 20px;
   }
-  .headerProfile {
+  .headerProfileContainer {
     margin: 20px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
+
+    .headerProfileContent {
+      display: flex;
+    align-items: center;
     align-self: center;
+    }
     .profilePicture {
       max-width: 100px;
       img {
@@ -26,13 +32,12 @@
     .userName {
       margin-left: 20px;
       font-size: 25px;
-      font-weight: bold;
     }
-    .email {
+    .email,.userSince {
       margin-left: 20px;
       display: flex;
       flex-wrap: wrap;
-      span {
+      span,p {
         margin-left: 10px;
       }
     }
