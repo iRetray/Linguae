@@ -3,17 +3,21 @@
 .CardContainer {
   display: flex;
   justify-content: center;
+  cursor: pointer;
   border-radius: 6px;
-  box-shadow: 0px 0px 11px 2px rgb(0 0 0 / 30%);
+  transition: 250ms;
+  box-shadow: 0px 0px 12px 2px rgb(0 0 0 / 30%);
   flex-wrap: wrap;
   width: -webkit-fill-available;
   margin: 15px;
   max-width: 315px;
+  max-height: 350px;
   .informationContainer {
     display: flex;
     flex-direction: column;
     align-self: center;
     padding: 12px 0px;
+    margin: 0px 20px;
     .header {
       display: flex;
       justify-content: space-between;
@@ -82,5 +86,9 @@
         border-radius: 50%;
       }
     }
+  }
+  &:hover {
+    transition: 250ms;
+    box-shadow: 0px 0px 10px 8px rgb(0 0 0 / 30%);
   }
 }
