@@ -21,7 +21,7 @@ const Profile = () => {
   const cardsCollection = collection(firestore, "cards");
   const cardsQuery = query(
     cardsCollection,
-    where("owner", "==", userState.displayName)
+    where("owner", "==", userState.displayName || "")
   );
   const { status, data: cardListUser } = useFirestoreCollectionData(cardsQuery);
 
@@ -67,9 +67,10 @@ const Profile = () => {
               <div className="userSince">
                 <RiUserHeartLine />
                 <p className="title">
-                  {`User since: ${moment(
-                    parseInt(userState.metadata?.createdAt)
-                  ).fromNow()}`}
+                  <strong>Account created:</strong>
+                  <span>
+                    {moment(parseInt(userState.metadata?.createdAt)).fromNow()}
+                  </span>
                 </p>
               </div>
             </div>
