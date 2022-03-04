@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { getAuth } from "firebase/auth";
 
 import { Popover, Badge } from "antd";
-import { CgLogOut } from "react-icons/cg";
+import { CgLogOut, CgProfile } from "react-icons/cg";
 
 import { UserContext } from "../contexts";
 
@@ -14,6 +14,10 @@ const CloseSession = () => {
   const auth = getAuth();
   const router = useRouter();
   const [, UserDispatch] = useContext(UserContext);
+
+  const goToMyProfile = () => {
+    router.replace("/profile");
+  };
 
   const closeSession = () => {
     auth
@@ -29,9 +33,16 @@ const CloseSession = () => {
   };
 
   return (
-    <div onClick={closeSession} className="closeSessionButton">
-      <CgLogOut />
-      <span>Close session</span>
+    <div className="PopoverContainer">
+      <div onClick={goToMyProfile} className="miProfile">
+        <CgProfile />
+        <span>Mi profile</span>
+      </div>
+      <hr />
+      <div onClick={closeSession} className="closeSessionButton">
+        <CgLogOut />
+        <span>Close session</span>
+      </div>
     </div>
   );
 };

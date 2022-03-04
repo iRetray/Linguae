@@ -26,6 +26,10 @@ h6 {
   justify-content: start;
 }
 
+.flex-center {
+  justify-content: center;
+}
+
 .button-blue {
   border: 2px solid #004e89;
   background: #004e89;
@@ -34,6 +38,11 @@ h6 {
   color: #ffffff;
   cursor: pointer;
   box-shadow: 2px 4px 5px #00000057;
+}
+
+.font-bold {
+  font-weight: bold;
+
 }
 
 a {
@@ -89,6 +98,7 @@ a {
 @import "./pages/Platform.scss";
 @import "./pages/AddContentContainer.scss";
 @import "./pages/CreateAccount.scss";
+@import "./pages/Profile.scss";
 
 @import "./components/DevBox.scss";
 @import "./components/Button.scss";
