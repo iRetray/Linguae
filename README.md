@@ -1,34 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Linguae
+## _Coming features_
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Crear nueva seccion para redirigir a crear tarjetas, parecido al "Que estas pensando?" de Facebook
+- Añadir en el home de Linguae estadisticas sobre como se han creado tarjetas (cuantas al mes, cuando fue la ultima, cantidad totales, usuarios totales)
+- Añadir reaccion de corazon (como instagram) "positivo", y una reaccion negativo, si una tarjeta, tiene mas negativos que positos, mostrarsela en alerta al usuario, para que la corrija o elimine
+- El usuario puede editar y eliminar sus tarjetas}
+- Crear seccion de danger options (como github) ( eliminar cuenta, elminar todas mis tarjetas )
+- Modo oscuro/claro desde tabBar *Rosa is working on this :)*
+- Organizar tarjetas por mas likeadas
+- Filtros por tipos
+- Crear carga mas corta, solo 6 tarjetas, y alguna forma de cargar mas (detectando scroll, o con un boton)
+- Buscador de palabras *Rosa is working on this :)*
+- Crear paginas individuales con SEO para cada palabra *Julian is working on this :)*
+- Copiado para cada palabra *Rosa is working on this :)*
