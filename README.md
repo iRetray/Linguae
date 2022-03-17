@@ -12,4 +12,3 @@
 - Crear carga mas corta, solo 6 tarjetas, y alguna forma de cargar mas (detectando scroll, o con un boton)
 - Buscador de palabras **Rosa is working on this :)**
 - Crear paginas individuales con SEO para cada palabra **Julian is working on this :)**
-- Copiado para cada palabra **Rosa is working on this :)**
