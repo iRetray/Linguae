@@ -20,6 +20,8 @@ import { useFirestore } from "reactfire";
 import { UserContext } from "../../contexts";
 import { notification } from "antd";
 
+import { v4 as uuidv4 } from "uuid";
+
 const AddContent = () => {
   const router = useRouter();
   const [userState] = useContext(UserContext);
@@ -84,6 +86,7 @@ const AddContent = () => {
 
   const saveNewContent = () => {
     addDoc(cardsCollection, {
+      id: uuidv4(),
       owner: displayName,
       avatar: photoURL,
       ...getValues("newContent"),
