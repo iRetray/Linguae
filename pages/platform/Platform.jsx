@@ -30,7 +30,7 @@ export default function Platform() {
     if (!userState.isLogged) {
       setModalCreateAccount({ isVisible: true });
     } else {
-      router.push("/addContent");
+      router.replace("/addContent");
     }
   };
 

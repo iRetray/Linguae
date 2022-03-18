@@ -26,7 +26,7 @@ const CreateAccount = ({ closeModal }) => {
             ...user,
           },
         });
-        router.push("/addContent");
+        router.replace("/addContent");
       })
       .catch((error) => {
         console.error({ error });

@@ -16,7 +16,7 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
   }; */
 
   const goToCardPage = () => {
-    router.push({
+    router.replace({
       pathname: "card/[id]",
       query: { id },
     });
