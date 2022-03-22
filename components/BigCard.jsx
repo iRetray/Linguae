@@ -6,7 +6,13 @@ import { VscWholeWord } from "react-icons/vsc";
 import { FaRegCommentDots } from "react-icons/fa";
 import { BsBookmarks } from "react-icons/bs";
 
-export const BigCard = ({ englishValue, spanishValue, image, owner }) => {
+export const BigCard = ({
+  englishValue,
+  spanishValue,
+  image,
+  owner,
+  dictionaryMeaning,
+}) => {
   return (
     <div className="BigCardContainer">
       <div className="imageCard">
@@ -47,7 +53,60 @@ export const BigCard = ({ englishValue, spanishValue, image, owner }) => {
             <p className="subtitle">
               <strong>The dictionary</strong> define it as
             </p>
-            <p className="dictionaryText">{spanishValue}</p>
+            <p className="dictionaryText">
+              {dictionaryMeaning &&
+                dictionaryMeaning.meanings.map(
+                  (
+                    { partOfSpeech, synonyms, antonyms, definitions },
+                    index
+                  ) => (
+                    <div className="dictionaryElement" key={index}>
+                      <p className="titleSpeech">{partOfSpeech}</p>
+                      {definitions.length > 0 && (
+                        <div className="containerSpeech">
+                          <p className="titleList">Definitions</p>
+                          <ul>
+                            {definitions.map(
+                              ({ definition }, definitionIndex) => (
+                                <li
+                                  key={definitionIndex}
+                                  className="mainMeaning"
+                                >
+                                  {definition}
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        </div>
+                      )}
+                      {synonyms.length > 0 && (
+                        <div className="containerSpeech">
+                          <p className="titleList">Synonyms</p>
+                          <ul>
+                            {synonyms.map((synonym, synonymIndex) => (
+                              <li key={synonymIndex} className="mainMeaning">
+                                {synonym}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                      {antonyms.length > 0 && (
+                        <div className="containerSpeech">
+                          <p className="titleList">Antonyms</p>
+                          <ul>
+                            {antonyms.map((antonym, antonymIndex) => (
+                              <li key={antonymIndex} className="mainMeaning">
+                                {antonym}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )
+                )}
+            </p>
           </div>
         </div>
       </div>

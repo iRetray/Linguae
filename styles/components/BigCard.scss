@@ -1,5 +1,5 @@
 .BigCardContainer {
-  max-width: 800px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +10,7 @@
   flex-wrap: wrap;
   width: fit-content;
   margin: 15px;
+  align-self: center;
   .imageCard {
     max-height: 350px;
     max-width: 600px;
@@ -18,6 +19,10 @@
     display: flex;
     margin-bottom: 0px;
     margin-top: auto;
+    align-self: center;
+    @media (max-width: $breakpointSmall) {
+      max-height: 200px;
+    }
   }
   .textsContainer {
     padding: 0px 30px;
@@ -44,8 +49,33 @@
         line-height: 20px;
       }
       .dictionaryText {
-        font-size: 20px;
-        line-height: 20px;
+        @media (max-width: $breakpointSmall) {
+          margin: 0px -20px 0px -50px;
+          padding: 10px 0px;
+        }
+        .dictionaryElement {
+          background-color: $greyLight;
+          border-radius: 5px;
+          margin: 10px;
+          padding: 10px;
+          .titleSpeech {
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .containerSpeech {
+            margin: 10px;
+            .titleList {
+              font-size: 16px;
+              font-weight: bold;
+              font-style: italic;
+            }
+            .mainMeaning {
+              font-size: 14px;
+              line-height: 15px;
+              padding: 5px;
+            }
+          }
+        }
       }
     }
   }

@@ -10,16 +10,20 @@ import { collection, query, where } from "firebase/firestore";
 
 import { BigCard, Loader, Header, GoBack } from "../../components";
 
+import dictionaryService from "../../services/dictionaryService";
+
 import { v4 as uuidv4 } from "uuid";
 
 const defaultSiteDescription =
   "Learn and practice your english sharing your knowledge with the community";
 
+/* There are a lot of contents in this prop! We must explore it! */
 const Card = () => {
   const router = useRouter();
   const { cardId } = router.query;
 
   const [card, setCard] = useState();
+  const [dictionaryMeaning, setDictionaryMeaning] = useState(null);
 
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
@@ -30,8 +34,17 @@ const Card = () => {
     console.log(uuidv4());
     if (cardListUser) {
       setCard(cardListUser[0]);
+      getDictionaryMeaning(cardListUser[0].englishValue);
     }
   }, [cardListUser]);
+
+  useEffect(() => {}, []);
+
+  const getDictionaryMeaning = (wordToSearch) => {
+    dictionaryService.searchWord(wordToSearch).then((responseDictionary) => {
+      setDictionaryMeaning(responseDictionary[0]);
+    });
+  };
 
   return (
     <Fragment>
@@ -64,7 +77,7 @@ const Card = () => {
           {status === "loading" ? (
             <Loader text="Getting card's information..." color="#004e89" />
           ) : card ? (
-            <BigCard {...card} />
+            <BigCard dictionaryMeaning={dictionaryMeaning} {...card} />
           ) : (
             <div>
               <p>No se ha encontrado la card</p>
