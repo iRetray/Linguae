@@ -1,13 +1,14 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-import { NextSeo } from "next-seo";
+import Link from "next/link";
 
+import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 import { collection, query, where } from "firebase/firestore";
 
-import { Card as CardComponent } from "../../components";
+import { BigCard, Loader, Header, GoBack } from "../../components";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -54,15 +55,23 @@ const Card = () => {
           ],
         }}
       />
-      {status === "loading" ? (
-        <div>Cargando</div>
-      ) : card ? (
-        <CardComponent {...card} />
-      ) : (
-        <div>
-          <p>No se ha encontrado la card</p>
+      <div className="SingleCardContainer">
+        <Header />
+        <div className="singleCardMainContainer">
+          <Link href="/platform" passHref={true}>
+            <GoBack previousPageName="Platform" />
+          </Link>
+          {status === "loading" ? (
+            <Loader text="Getting card's information..." color="#004e89" />
+          ) : card ? (
+            <BigCard {...card} />
+          ) : (
+            <div>
+              <p>No se ha encontrado la card</p>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </Fragment>
   );
 };

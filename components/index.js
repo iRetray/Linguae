@@ -10,3 +10,4 @@ export * from "./Input";
 export * from "./Select";
 export * from "./Header";
 export * from "./Modal";
+export * from "./BigCard";

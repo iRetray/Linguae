@@ -1,0 +1,52 @@
+.BigCardContainer {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 250ms;
+  box-shadow: 0px 0px 12px 2px rgb(0 0 0 / 30%);
+  flex-wrap: wrap;
+  width: fit-content;
+  margin: 15px;
+  .imageCard {
+    max-height: 350px;
+    max-width: 600px;
+    padding: 10px;
+    border-radius: 20px;
+    display: flex;
+    margin-bottom: 0px;
+    margin-top: auto;
+  }
+  .textsContainer {
+    padding: 0px 30px;
+    .textObject {
+      margin: 15px 0px;
+      display: flex;
+      .icon {
+        width: fit-content;
+        color: grey;
+        margin-right: 15px;
+      }
+      .subtitle {
+        font-size: 12px;
+        color: $greyMoreDark;
+        font-style: italic;
+      }
+      .englishValueText {
+        font-size: 35px;
+        line-height: 28px;
+        font-weight: 600;
+      }
+      .spanishValueText {
+        font-size: 25px;
+        line-height: 20px;
+      }
+      .dictionaryText {
+        font-size: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}
