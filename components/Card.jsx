@@ -44,8 +44,8 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
       <div className="imageCard" onClick={goToCardPage}>
         <Image
           src={`/api/imageProxy?url=${encodeURIComponent(image)}`}
-          width="800px"
-          height="800px"
+          width="350px"
+          height="250px"
           objectFit="cover"
           alt="Related word image"
         />

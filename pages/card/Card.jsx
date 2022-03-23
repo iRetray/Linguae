@@ -41,9 +41,15 @@ const Card = () => {
   useEffect(() => {}, []);
 
   const getDictionaryMeaning = (wordToSearch) => {
-    dictionaryService.searchWord(wordToSearch).then((responseDictionary) => {
-      setDictionaryMeaning(responseDictionary[0]);
-    });
+    const firstWordOfPhrase = wordToSearch.split(" ")[0].replace(/,/g, "");
+    dictionaryService
+      .searchWord(firstWordOfPhrase)
+      .then((responseDictionary) => {
+        setDictionaryMeaning(responseDictionary[0]);
+      })
+      .catch((error) => {
+        console.error("Dictionary error: ", error);
+      });
   };
 
   return (

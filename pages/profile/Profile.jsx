@@ -45,14 +45,13 @@ const Profile = () => {
         <div className="headerProfileContainer">
           <div className="headerProfileContent">
             <div className="profilePicture">
-              {console.log("dfd", userState)}
               <Image
                 loading="eager"
                 src={`/api/imageProxy?url=${encodeURIComponent(
                   userState.photoURL
                 )}`}
-                width="600px"
-                height="600px"
+                width="100px"
+                height="100px"
                 alt="Related word image"
               />
             </div>

@@ -225,8 +225,8 @@ const AddContent = () => {
                       src={`/api/imageProxy?url=${encodeURIComponent(
                         urls.regular
                       )}`}
-                      width="1000px"
-                      height="800px"
+                      width="300px"
+                      height="250px"
                       objectFit="cover"
                       alt="Searched image"
                     />

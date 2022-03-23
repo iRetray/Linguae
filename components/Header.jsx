@@ -36,7 +36,7 @@ const CloseSession = () => {
     <div className="PopoverContainer">
       <div onClick={goToMyProfile} className="miProfile">
         <CgProfile />
-        <span>Mi profile</span>
+        <span>My profile</span>
       </div>
       <hr />
       <div onClick={closeSession} className="closeSessionButton">

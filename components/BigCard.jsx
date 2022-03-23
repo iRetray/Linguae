@@ -18,8 +18,8 @@ export const BigCard = ({
       <div className="imageCard">
         <Image
           src={`/api/imageProxy?url=${encodeURIComponent(image)}`}
-          width="800px"
-          height="800px"
+          width="600px"
+          height="350px"
           objectFit="cover"
           alt="Related word image"
         />
