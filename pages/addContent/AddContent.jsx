@@ -21,6 +21,7 @@ import { UserContext } from "../../contexts";
 import { notification } from "antd";
 
 import { v4 as uuidv4 } from "uuid";
+import { ContentLayout } from "../../layouts";
 
 const AddContent = () => {
   const router = useRouter();
@@ -107,142 +108,149 @@ const AddContent = () => {
   };
 
   return (
-    <div className="AddContentContainer" hidden={!userState.isLogged}>
-      <Head>
-        <title>Linguage | Add content</title>
-      </Head>
-      <Header />
-      <Link href="/platform" passHref={true}>
-        <GoBack previousPageName="Platform" />
-      </Link>
-      <h1>Create new content</h1>
-      <form onSubmit={handleSubmit(saveNewContent)}>
-        <div className="addContentForm">
-          <div className="sideLeft">
-            <div className="englishValue inputSection">
-              <span className="label">English value</span>
-              <Input
-                isTextArea
-                name="newContent.englishValue"
-                placeholder="e.g. Would"
-                handleBlur={handleBlurEnglishValue}
-                register={register}
-                validationSchema={{ required: "This field is required" }}
-                errors={errors}
-              />
-              <span className="translatedText" hidden={sentence === ""}>
-                {sentence}
-                <span
-                  className="buttonUse"
-                  onClick={() => {
-                    setValue("newContent.spanishValue", sentence);
-                  }}
-                >
-                  Use this value as Spanish value
-                </span>
-              </span>
-            </div>
-            <div className="inputSection">
-              <span className="label">Spanish value</span>
-              <Input
-                isTextArea
-                name="newContent.spanishValue"
-                placeholder="e.g. Preferir"
-                register={register}
-                validationSchema={{ required: "This field is required" }}
-                errors={errors}
-              />
-            </div>
-            <div className="inputSection">
-              <span className="label">Type of word</span>
-              <Select
-                options={[
-                  {
-                    value: "WORD",
-                    text: "Word",
-                  },
-                  {
-                    value: "PHRASAL",
-                    text: "Phrasal Verb",
-                  },
-                  {
-                    value: "IDIOM",
-                    text: "Idiom",
-                  },
-                ]}
-              />
-            </div>
-            <div>
-              <button type="submit" className="rectangleButton">
-                Save new word
-              </button>
-            </div>
-          </div>
-          <div className="sideRight">
-            <div className="inputSection">
-              <span className="labelSearch">Search a picture</span>
-              <div className="searchContainer">
+    <ContentLayout>
+      <div className="AddContentContainer" hidden={!userState.isLogged}>
+        <Head>
+          <title>Linguage | Add content</title>
+        </Head>
+        <Header />
+        <Link href="/platform" passHref={true}>
+          <GoBack previousPageName="Platform" />
+        </Link>
+        <h1>Create new content</h1>
+        <form onSubmit={handleSubmit(saveNewContent)}>
+          <div className="addContentForm">
+            <div className="sideLeft">
+              <div className="englishValue inputSection">
+                <span className="label">English value</span>
                 <Input
-                  name="search"
-                  style={{ width: "-webkit-fill-available" }}
-                  placeholder="e.g. dog in the garden"
+                  isTextArea
+                  name="newContent.englishValue"
+                  placeholder="e.g. Would"
+                  handleBlur={handleBlurEnglishValue}
                   register={register}
+                  validationSchema={{ required: "This field is required" }}
                   errors={errors}
-                  className="border-two-side"
                 />
-                <div className="searchButton" onClick={searchImage}>
-                  <BiSearchAlt className="searchIcon" />
-                </div>
+                <span className="translatedText" hidden={sentence === ""}>
+                  {sentence}
+                  <span
+                    className="buttonUse"
+                    onClick={() => {
+                      setValue("newContent.spanishValue", sentence);
+                    }}
+                  >
+                    Use this value as Spanish value
+                  </span>
+                </span>
+              </div>
+              <div className="inputSection">
+                <span className="label">Spanish value</span>
+                <Input
+                  isTextArea
+                  name="newContent.spanishValue"
+                  placeholder="e.g. Preferir"
+                  register={register}
+                  validationSchema={{ required: "This field is required" }}
+                  errors={errors}
+                />
+              </div>
+              <div className="inputSection">
+                <span className="label">Type of word</span>
+                <Select
+                  options={[
+                    {
+                      value: "WORD",
+                      text: "Word",
+                    },
+                    {
+                      value: "PHRASAL",
+                      text: "Phrasal Verb",
+                    },
+                    {
+                      value: "IDIOM",
+                      text: "Idiom",
+                    },
+                  ]}
+                />
+              </div>
+              <div>
+                <button type="submit" className="rectangleButton">
+                  Save new word
+                </button>
               </div>
             </div>
-            <div
-              className="imagesGeneralContainer"
-              hidden={
-                !(
-                  imageList &&
-                  Array.isArray(imageList) &&
-                  imageList.length >= 1
-                )
-              }
-            >
-              {imageList &&
-                Array.isArray(imageList) &&
-                imageList.map(({ id, urls }, index) => (
-                  <div
-                    key={index}
-                    className={
-                      selectedPicture === id
-                        ? "imageContainer selected"
-                        : "imageContainer"
-                    }
-                    onClick={() => handleClickImage({ URL: urls.regular, id })}
-                  >
-                    <div className="checkIcon" hidden={selectedPicture !== id}>
-                      <BsFillCheckCircleFill color="#004e89" />
-                    </div>
-                    <Image
-                      loading="eager"
-                      src={`/api/imageProxy?url=${encodeURIComponent(
-                        urls.regular
-                      )}`}
-                      width="300px"
-                      height="250px"
-                      objectFit="cover"
-                      alt="Searched image"
-                    />
+            <div className="sideRight">
+              <div className="inputSection">
+                <span className="labelSearch">Search a picture</span>
+                <div className="searchContainer">
+                  <Input
+                    name="search"
+                    style={{ width: "-webkit-fill-available" }}
+                    placeholder="e.g. dog in the garden"
+                    register={register}
+                    errors={errors}
+                    className="border-two-side"
+                  />
+                  <div className="searchButton" onClick={searchImage}>
+                    <BiSearchAlt className="searchIcon" />
                   </div>
-                ))}
-              {imageList && Array.isArray(imageList) && (
-                <div className="loadMorePictures" onClick={loadMorePictures}>
-                  <BiCloudDownload className="iconLoad" />
-                  <span>Load more images</span>
                 </div>
-              )}
+              </div>
+              <div
+                className="imagesGeneralContainer"
+                hidden={
+                  !(
+                    imageList &&
+                    Array.isArray(imageList) &&
+                    imageList.length >= 1
+                  )
+                }
+              >
+                {imageList &&
+                  Array.isArray(imageList) &&
+                  imageList.map(({ id, urls }, index) => (
+                    <div
+                      key={index}
+                      className={
+                        selectedPicture === id
+                          ? "imageContainer selected"
+                          : "imageContainer"
+                      }
+                      onClick={() =>
+                        handleClickImage({ URL: urls.regular, id })
+                      }
+                    >
+                      <div
+                        className="checkIcon"
+                        hidden={selectedPicture !== id}
+                      >
+                        <BsFillCheckCircleFill color="#004e89" />
+                      </div>
+                      <Image
+                        loading="eager"
+                        src={`/api/imageProxy?url=${encodeURIComponent(
+                          urls.regular
+                        )}`}
+                        width="300px"
+                        height="250px"
+                        objectFit="cover"
+                        alt="Searched image"
+                      />
+                    </div>
+                  ))}
+                {imageList && Array.isArray(imageList) && (
+                  <div className="loadMorePictures" onClick={loadMorePictures}>
+                    <BiCloudDownload className="iconLoad" />
+                    <span>Load more images</span>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+    </ContentLayout>
   );
 };
 

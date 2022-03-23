@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -8,9 +8,11 @@ import { UserContext } from "../../contexts";
 import { collection, query } from "firebase/firestore";
 import { useFirestore, useFirestoreCollectionData } from "reactfire";
 
-import { BiImageAdd } from "react-icons/bi";
+import { ContentLayout } from "../../layouts";
 import { Card, GoBack, Loader, Header, Modal } from "../../components";
 import CreateAccount from "./CreateAccount";
+
+import { BiImageAdd } from "react-icons/bi";
 
 export default function Platform() {
   const router = useRouter();
@@ -35,7 +37,7 @@ export default function Platform() {
   };
 
   return (
-    <Fragment>
+    <ContentLayout>
       <div className="PlatformContainer">
         <Head>
           <title>Linguage | Platform</title>
@@ -66,6 +68,6 @@ export default function Platform() {
           />
         </Modal>
       )}
-    </Fragment>
+    </ContentLayout>
   );
 }

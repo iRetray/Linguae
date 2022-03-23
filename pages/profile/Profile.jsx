@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -14,6 +14,7 @@ import { RiUserHeartLine } from "react-icons/ri";
 import { Card, GoBack, Header, Line, Loader } from "../../components";
 
 import { UserContext } from "../../contexts";
+import { ContentLayout } from "../../layouts/ContentLayout";
 
 const Profile = () => {
   const [userState] = useContext(UserContext);
@@ -26,7 +27,7 @@ const Profile = () => {
   const { status, data: cardListUser } = useFirestoreCollectionData(cardsQuery);
 
   return (
-    <Fragment>
+    <ContentLayout>
       <div className="ProfileContainer">
         <Head>
           <title>Linguage | Profile</title>
@@ -98,7 +99,7 @@ const Profile = () => {
           )}
         </div>
       </div>
-    </Fragment>
+    </ContentLayout>
   );
 };
 

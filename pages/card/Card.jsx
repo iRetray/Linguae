@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Link from "next/link";
 
@@ -13,6 +13,7 @@ import { BigCard, Loader, Header, GoBack } from "../../components";
 import dictionaryService from "../../services/dictionaryService";
 
 import { v4 as uuidv4 } from "uuid";
+import { ContentLayout } from "../../layouts/ContentLayout";
 
 const defaultSiteDescription =
   "Learn and practice your english sharing your knowledge with the community";
@@ -53,7 +54,7 @@ const Card = () => {
   };
 
   return (
-    <Fragment>
+    <ContentLayout>
       <NextSeo
         title={card ? `Linguae | ${card.englishValue}` : "Linguae"}
         description={card ? card.spanishValue : defaultSiteDescription}
@@ -76,22 +77,18 @@ const Card = () => {
       />
       <div className="SingleCardContainer">
         <Header />
-        <div className="singleCardMainContainer">
-          <Link href="/platform" passHref={true}>
-            <GoBack previousPageName="Platform" />
-          </Link>
-          {status === "loading" ? (
-            <Loader text="Getting card's information..." color="#004e89" />
-          ) : card ? (
-            <BigCard dictionaryMeaning={dictionaryMeaning} {...card} />
-          ) : (
-            <div>
-              <p>No se ha encontrado la card</p>
-            </div>
-          )}
-        </div>
+        <Link href="/platform" passHref={true}>
+          <GoBack previousPageName="Platform" />
+        </Link>
+        {status === "loading" ? (
+          <Loader text="Getting card's information..." color="#004e89" />
+        ) : card ? (
+          <BigCard dictionaryMeaning={dictionaryMeaning} {...card} />
+        ) : (
+          <p>No se ha encontrado la card</p>
+        )}
       </div>
-    </Fragment>
+    </ContentLayout>
   );
 };
 

@@ -92,6 +92,8 @@ a {
   line-height: 17px Im !important;
 }
 
+@import "./layouts/Content.scss";
+
 @import "./pages/Linguae.scss";
 @import "./pages/DevsDashboard.scss";
 @import "./pages/Platform.scss";

@@ -1,17 +1,1 @@
 @import "../theme.scss";
-
-.SingleCardContainer {
-  .singleCardMainContainer {
-    max-width: 1200px;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 70px;
-    padding: 30px;
-    @media (max-width: $breakpointSmall) {
-      padding: 40px 20px;
-    }
-  }
-}
