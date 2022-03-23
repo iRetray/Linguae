@@ -25,12 +25,6 @@ const Profile = () => {
   );
   const { status, data: cardListUser } = useFirestoreCollectionData(cardsQuery);
 
-  useEffect(() => {
-    console.log(
-      moment(parseInt(userState.metadata?.lastLoginAt)).format("LLLL")
-    );
-  }, [userState]);
-
   return (
     <Fragment>
       <div className="ProfileContainer">
