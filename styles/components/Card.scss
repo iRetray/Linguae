@@ -1,23 +1,25 @@
 @import "../theme.scss";
 
-.CardContainer {
-  display: flex;
-  justify-content: center;
+.cardContainer {
   cursor: pointer;
   border-radius: 6px;
   transition: 250ms;
   box-shadow: 0px 0px 12px 2px rgb(0 0 0 / 30%);
-  flex-wrap: wrap;
   width: -webkit-fill-available;
   margin: 15px;
   max-width: 315px;
-  max-height: 350px;
+  max-height: 400px;
+
+  
+  
   .informationContainer {
     display: flex;
     flex-direction: column;
     align-self: center;
     padding: 12px 0px;
-    margin: 0px 20px;
+    align-items: center;
+    align-content: space-between;
+    height: 190px;
     .header {
       display: flex;
       justify-content: space-between;
@@ -34,24 +36,32 @@
       }
     }
     .miniCardContainer {
+      margin: 0px 20px;
       display: flex;
       flex-direction: column;
       width: 230px;
       .wordContainer {
-        background-color: $greyHard;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f5faff;
         margin-top: 10px;
         padding: 5px 20px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        color: #fff;
+        color: #000;
         font-size: 23px;
         text-align: center;
+
+        svg {
+          width: 20px;
+        }
       }
       .definition {
         padding: 15px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        background-color: $greyLight;
+        //background-color: $greyLight;
         font-size: 15px;
         font-weight: bold;
         line-height: 15px;
@@ -61,11 +71,11 @@
   }
   .imageCard {
     max-height: 190px;
-    padding: 10px;
-    border-radius: 20px;
     display: flex;
     margin-bottom: 0px;
-    margin-top: auto;
+    img {
+      border-radius: 6px 6px 0px 0px;
+    }
   }
   .ownerSection {
     cursor: pointer;
@@ -73,8 +83,11 @@
     font-size: 12px;
     width: -webkit-fill-available;
     padding-right: 10px;
-    padding-top: 10px;
+    padding-bottom: 6px;
     align-items: center;
+    height: 100%;
+    align-items: end;
+
     .ownerName {
       margin-left: 10px;
       line-height: 15px;
