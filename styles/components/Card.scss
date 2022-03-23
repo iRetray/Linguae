@@ -2,16 +2,14 @@
 
 .cardContainer {
   cursor: pointer;
+  position: relative;
   border-radius: 6px;
   transition: 250ms;
   box-shadow: 0px 0px 12px 2px rgb(0 0 0 / 30%);
   width: -webkit-fill-available;
   margin: 15px;
   max-width: 315px;
-  max-height: 400px;
-
-  
-  
+  max-height: 335px;
   .informationContainer {
     display: flex;
     flex-direction: column;
@@ -19,7 +17,6 @@
     padding: 12px 0px;
     align-items: center;
     align-content: space-between;
-    height: 190px;
     .header {
       display: flex;
       justify-content: space-between;
@@ -44,15 +41,15 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #f5faff;
+        background-color: #ebf4fc;
         margin-top: 10px;
-        padding: 5px 20px;
+        padding: 10px 20px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
         color: #000;
         font-size: 23px;
         text-align: center;
-
+        line-height: 20px;
         svg {
           width: 20px;
         }
@@ -61,7 +58,6 @@
         padding: 15px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        //background-color: $greyLight;
         font-size: 15px;
         font-weight: bold;
         line-height: 15px;
@@ -77,31 +73,36 @@
       border-radius: 6px 6px 0px 0px;
     }
   }
-  .ownerSection {
+  .avatarImage {
     cursor: pointer;
     display: flex;
-    font-size: 12px;
-    width: -webkit-fill-available;
-    padding-right: 10px;
-    padding-bottom: 6px;
-    align-items: center;
-    height: 100%;
-    align-items: end;
-
-    .ownerName {
-      margin-left: 10px;
-      line-height: 15px;
-    }
-    .avatarImage {
-      display: flex;
-      margin-left: 10px;
-      img {
-        border-radius: 50%;
-      }
+    background-color: #fff;
+    padding: 2px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    img {
+      border-radius: 50%;
     }
   }
   &:hover {
     transition: 250ms;
     box-shadow: 0px 0px 10px 8px rgb(0 0 0 / 30%);
+  }
+}
+
+.UserMiniCardContainer {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  .avatar {
+    margin-right: 10px;
+    img {
+      border-radius: 50%;
+    }
+  }
+  p {
+    font-weight: bold;
   }
 }

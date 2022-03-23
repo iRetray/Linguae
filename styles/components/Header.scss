@@ -39,7 +39,7 @@
     margin-left: auto;
     align-items: center;
     .textsContainer {
-      text-align: end;
+      text-align: flex-end;
       @media (max-width: $breakpointSmall) {
         display: none;
       }

@@ -4,8 +4,24 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 /* import copy from "copy-to-clipboard"; */
-import { Tooltip } from "antd";
+import { Tooltip, Popover } from "antd";
 import { HiOutlineClipboardCopy } from "react-icons/hi";
+
+const UserMiniCard = ({ username, avatar }) => (
+  <div className="UserMiniCardContainer">
+    <div className="avatar">
+      <Image
+        loading="eager"
+        src={`/api/imageProxy?url=${encodeURIComponent(avatar)}`}
+        width="30px"
+        height="30px"
+        objectFit="cover"
+        alt="Related word image"
+      />
+    </div>
+    <p>{username}</p>
+  </div>
+);
 
 export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
   const router = useRouter();
@@ -34,7 +50,6 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
           alt="Related word image"
         />
       </div>
-
       <div className="informationContainer">
         <div className="miniCardContainer">
           <Tooltip title={textCopy} color="purple">
@@ -51,25 +66,24 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
           </Tooltip>
           <span className="definition">{spanishValue}</span>
         </div>
-
-        {owner && (
-          <div className="ownerSection">
-            <div className="avatarImage">
-              <Tooltip title={owner}>
-                <Image
-                  loading="eager"
-                  src={`/api/imageProxy?url=${encodeURIComponent(avatar)}`}
-                  width="30px"
-                  height="30px"
-                  objectFit="cover"
-                  alt="Related word image"
-                />
-              </Tooltip>
-            </div>
-            <div className="ownerName" onClick={copyToWord}></div>
-          </div>
-        )}
       </div>
+      {owner && (
+        <div className="avatarImage">
+          <Popover
+            title=""
+            content={<UserMiniCard username={owner} avatar={avatar} />}
+          >
+            <Image
+              loading="eager"
+              src={`/api/imageProxy?url=${encodeURIComponent(avatar)}`}
+              width="30px"
+              height="30px"
+              objectFit="cover"
+              alt="Related word image"
+            />
+          </Popover>
+        </div>
+      )}
     </div>
   );
 }
