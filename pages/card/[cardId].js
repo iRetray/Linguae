@@ -93,6 +93,12 @@ const Card = () => {
 
 export default Card;
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 export async function getStaticPaths() {
   return {
     paths: [{ params: { cardId: "0dfa7601-67e3-4c19-9dab-e3947ff4d431" } }],
