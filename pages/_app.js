@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
 import { DefaultSeo } from "next-seo";
-import defaultSEO from "./defaultSEO";
+import defaultSEO from "../config/defaultSEO";
 
 import { UserProvider } from "../contexts";
 
