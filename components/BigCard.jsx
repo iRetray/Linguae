@@ -50,10 +50,10 @@ export const BigCard = ({
             <BsBookmarks />
           </div>
           <div>
-            <p className="subtitle">
+            <div className="subtitle">
               <strong>The dictionary</strong> define it as
-            </p>
-            <p className="dictionaryText">
+            </div>
+            <div className="dictionaryText">
               {dictionaryMeaning &&
                 dictionaryMeaning.meanings.map(
                   (
@@ -106,7 +106,7 @@ export const BigCard = ({
                     </div>
                   )
                 )}
-            </p>
+            </div>
           </div>
         </div>
       </div>

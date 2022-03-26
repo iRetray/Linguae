@@ -38,7 +38,7 @@ export default function Linguae() {
         Welcome to <span className="appName">Linguae</span>
       </h1>
       <span className="version">
-        Version: <strong>0.2.12 alpha</strong>
+        Version: <strong>3.1.2</strong>
       </span>
       <div className="buttonsSection">
         <Link href="/platform" passHref={true}>
