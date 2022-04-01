@@ -34,7 +34,9 @@ const Card = () => {
     console.log(uuidv4());
     if (cardListUser) {
       setCard(cardListUser[0]);
-      getDictionaryMeaning(cardListUser[0].englishValue);
+      if (cardListUser[0]) {
+        getDictionaryMeaning(cardListUser[0].englishValue);
+      }
     }
   }, [cardListUser]);
 

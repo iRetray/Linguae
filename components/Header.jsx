@@ -5,10 +5,12 @@ import { useRouter } from "next/router";
 
 import { getAuth } from "firebase/auth";
 
-import { Popover, Badge } from "antd";
+import { Popover, Badge, Switch } from "antd";
 import { CgLogOut, CgProfile } from "react-icons/cg";
+import { BsSunFill } from "react-icons/bs";
+import { MdNightsStay } from "react-icons/md";
 
-import { UserContext } from "../contexts";
+import { ThemeContext, UserContext } from "../contexts";
 
 const CloseSession = () => {
   const auth = getAuth();
@@ -50,11 +52,26 @@ const CloseSession = () => {
 export const Header = () => {
   const router = useRouter();
   const [userState] = useContext(UserContext);
+  const [ThemeDispatch] = useContext(ThemeContext);
+
+  const onChangeTheme = (checked) => {
+    ThemeDispatch({
+      type: checked ? "SET_LIGHT_THEME" : "SET_DARK_THEME",
+    });
+  };
 
   return (
     <div className="HeaderContainer">
       <div className="LinguaeTitle" onClick={() => router.replace("/")}>
         Linguae
+      </div>
+      <div>
+        <Switch
+          checkedChildren={<BsSunFill />}
+          unCheckedChildren={<MdNightsStay />}
+          defaultChecked
+          onChange={onChangeTheme}
+        />
       </div>
       <div className="userContainer" hidden={!userState.isLogged}>
         <div className="textsContainer">

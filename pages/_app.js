@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { DefaultSeo } from "next-seo";
 import defaultSEO from "../config/defaultSEO";
 
-import { UserProvider } from "../contexts";
+import { ThemeProvider, UserProvider } from "../contexts";
 
 import {
   FirebaseAppProvider,
@@ -45,12 +45,14 @@ function Linguae({ Component, pageProps }) {
     <FirebaseGlobalProvider>
       <FirebaseSDKProvider>
         <IconContext.Provider value={{ size: "23" }}>
-          <UserProvider>
-            <Fragment>
-              <DefaultSeo {...defaultSEO} />
-              <Component {...pageProps} />
-            </Fragment>
-          </UserProvider>
+          <ThemeProvider>
+            <UserProvider>
+              <Fragment>
+                <DefaultSeo {...defaultSEO} />
+                <Component {...pageProps} />
+              </Fragment>
+            </UserProvider>
+          </ThemeProvider>
         </IconContext.Provider>
       </FirebaseSDKProvider>
     </FirebaseGlobalProvider>

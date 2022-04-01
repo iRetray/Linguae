@@ -92,6 +92,50 @@ a {
   line-height: 17px Im !important;
 }
 
+.dark {
+
+  body {
+    background: red;
+  }
+  color: #b1c8d4 !important;
+  background: rgb(24 26 39) !important;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #b1c8d4 !important;
+  }
+
+  .cardContainer {
+    background: #ffffff0a;
+
+    .wordContainer {
+      background: #181a27;
+    }
+  }
+
+  .HeaderContainer {
+    background-color: #212330;
+  }
+
+}
+
+.light {
+  color: #000 !important;
+  background: #fff !important;
+
+  .cardContainer {
+    .wordContainer {
+      background: #ebf4fc;
+    }
+  }
+
+  
+}
+
+
 @import "./layouts/Content.scss";
 
 @import "./pages/Linguae.scss";

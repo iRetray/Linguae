@@ -1,5 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../contexts";
 
 export const ContentLayout = ({ children }) => {
-  return <div className="ContentLayoutContainer">{children}</div>;
+  const [themeState] = useContext(ThemeContext);
+  return (
+    <div
+      className={`ContentLayoutContainer ${
+        themeState.isDarkMode ? "dark" : "light"
+      }`}
+    >
+      {children}
+    </div>
+  );
 };
