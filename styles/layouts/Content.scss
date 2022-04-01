@@ -1,6 +1,7 @@
 @import "../theme.scss";
 
 .ContentLayoutContainer {
+  background-color: $emphasisColor;
   display: flex;
   justify-content: center;
   flex-direction: column;

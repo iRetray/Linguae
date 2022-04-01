@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext, useEffect } from "react";
 
 import { DefaultSeo } from "next-seo";
 import defaultSEO from "../config/defaultSEO";
+import themes from "../config/themes";
 
-import { ThemeProvider, UserProvider } from "../contexts";
+import { ThemeContext, ThemeProvider, UserProvider } from "../contexts";
 
 import {
   FirebaseAppProvider,
@@ -40,20 +41,45 @@ function FirebaseSDKProvider({ children }) {
   );
 }
 
+function ContextProvider({ children }) {
+  return (
+    <IconContext.Provider value={{ size: "23" }}>
+      <ThemeProvider>
+        <UserProvider>{children}</UserProvider>
+      </ThemeProvider>
+    </IconContext.Provider>
+  );
+}
+
+function LinguaeApp({ Component, pageProps }) {
+  const [themeState] = useContext(ThemeContext);
+
+  useEffect(() => {
+    const themeName = themeState.isDarkMode ? "DARK" : "LIGHT";
+    const { backgroundColor, emphasisColor, fontColor } = themes.find(
+      ({ name }) => name === themeName
+    );
+    const rootStyle = document.documentElement;
+    rootStyle.style.setProperty("--backgroundColor", backgroundColor);
+    rootStyle.style.setProperty("--emphasisColor", emphasisColor);
+    rootStyle.style.setProperty("--fontColor", fontColor);
+  }, [themeState]);
+
+  return (
+    <Fragment>
+      <DefaultSeo {...defaultSEO} />
+      <Component {...pageProps} />
+    </Fragment>
+  );
+}
+
 function Linguae({ Component, pageProps }) {
   return (
     <FirebaseGlobalProvider>
       <FirebaseSDKProvider>
-        <IconContext.Provider value={{ size: "23" }}>
-          <ThemeProvider>
-            <UserProvider>
-              <Fragment>
-                <DefaultSeo {...defaultSEO} />
-                <Component {...pageProps} />
-              </Fragment>
-            </UserProvider>
-          </ThemeProvider>
-        </IconContext.Provider>
+        <ContextProvider>
+          <LinguaeApp Component={Component} pageProps={pageProps} />
+        </ContextProvider>
       </FirebaseSDKProvider>
     </FirebaseGlobalProvider>
   );

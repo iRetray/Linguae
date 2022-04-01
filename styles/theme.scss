@@ -1,3 +1,13 @@
+/* Dynamic configuration to set themes */
+:root {
+  --backgroundColor: #fff;
+  --emphasisColor: #e9f2fa;
+  --fontColor: #000;
+}
+$backgroundColor: var(--backgroundColor);
+$emphasisColor: var(--emphasisColor);
+$fontColor: var(--fontColor);
+
 /* Greys */
 $greyDark: #141414;
 $greyHard: #262626;

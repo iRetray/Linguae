@@ -18,6 +18,8 @@ h6 {
   margin-bottom: 0px !important;
 }
 
+/* Refactor this please ;) */
+/* unscalable */
 .flex {
   display: flex;
   flex-flow: wrap;
@@ -43,6 +45,7 @@ h6 {
 .font-bold {
   font-weight: bold;
 }
+/*  */
 
 a {
   color: inherit;
@@ -92,8 +95,7 @@ a {
   line-height: 17px Im !important;
 }
 
-.dark {
-
+/* .dark {
   body {
     background: red;
   }
@@ -119,7 +121,6 @@ a {
   .HeaderContainer {
     background-color: #212330;
   }
-
 }
 
 .light {
@@ -131,10 +132,7 @@ a {
       background: #ebf4fc;
     }
   }
-
-  
-}
-
+} */
 
 @import "./layouts/Content.scss";
 

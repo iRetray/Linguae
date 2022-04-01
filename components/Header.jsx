@@ -52,7 +52,7 @@ const CloseSession = () => {
 export const Header = () => {
   const router = useRouter();
   const [userState] = useContext(UserContext);
-  const [ThemeDispatch] = useContext(ThemeContext);
+  const [, ThemeDispatch] = useContext(ThemeContext);
 
   const onChangeTheme = (checked) => {
     ThemeDispatch({
@@ -65,10 +65,18 @@ export const Header = () => {
       <div className="LinguaeTitle" onClick={() => router.replace("/")}>
         Linguae
       </div>
-      <div>
+      <div className="switchTheme">
         <Switch
-          checkedChildren={<BsSunFill />}
-          unCheckedChildren={<MdNightsStay />}
+          checkedChildren={
+            <div style={{ display: "flex" }}>
+              <BsSunFill size={15} />
+            </div>
+          }
+          unCheckedChildren={
+            <div style={{ display: "flex" }}>
+              <MdNightsStay size={15} />
+            </div>
+          }
           defaultChecked
           onChange={onChangeTheme}
         />
