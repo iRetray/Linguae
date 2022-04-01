@@ -52,7 +52,7 @@ const CloseSession = () => {
 export const Header = () => {
   const router = useRouter();
   const [userState] = useContext(UserContext);
-  const [, ThemeDispatch] = useContext(ThemeContext);
+  const [themeState, ThemeDispatch] = useContext(ThemeContext);
 
   const onChangeTheme = (checked) => {
     ThemeDispatch({
@@ -77,7 +77,7 @@ export const Header = () => {
               <MdNightsStay size={15} />
             </div>
           }
-          defaultChecked
+          checked={!themeState.isDarkMode}
           onChange={onChangeTheme}
         />
       </div>
