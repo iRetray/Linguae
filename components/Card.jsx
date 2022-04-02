@@ -3,8 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-/* import copy from "copy-to-clipboard"; */
-import { Tooltip, Popover } from "antd";
+import { Popover } from "antd";
 import { HiOutlineClipboardCopy } from "react-icons/hi";
 
 const UserMiniCard = ({ username, avatar }) => (
@@ -52,7 +51,7 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
       </div>
       <div className="informationContainer">
         <div className="miniCardContainer">
-          <Tooltip title={textCopy} color="purple">
+          <Popover title="" content={textCopy}>
             <div
               className="wordContainer"
               onMouseOver={() => {
@@ -63,7 +62,7 @@ export function Card({ id, englishValue, spanishValue, image, owner, avatar }) {
               <span>{englishValue}</span>
               <HiOutlineClipboardCopy />
             </div>
-          </Tooltip>
+          </Popover>
           <span className="definition">{spanishValue}</span>
         </div>
       </div>

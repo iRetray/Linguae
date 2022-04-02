@@ -1,4 +1,6 @@
 .BigCardContainer {
+  background-color: $backgroundColor;
+  color: $fontColor;
   margin: auto;
   max-width: 700px;
   display: flex;
@@ -55,7 +57,7 @@
           padding: 10px 0px;
         }
         .dictionaryElement {
-          background-color: $greyLight;
+          background-color: $emphasisColor;
           border-radius: 5px;
           margin: 10px;
           padding: 10px;

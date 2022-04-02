@@ -1,15 +1,17 @@
 @import "../theme.scss";
 
 .cardContainer {
+  
   cursor: pointer;
   position: relative;
   border-radius: 6px;
-  transition: 250ms;
+  transition: all 0.5s ease-in-out;
   box-shadow: 0px 0px 12px 2px rgb(0 0 0 / 30%);
   width: -webkit-fill-available;
   margin: 15px;
   max-width: 315px;
   max-height: 335px;
+  background-color: $backgroundColor;
   .informationContainer {
     display: flex;
     flex-direction: column;
@@ -41,20 +43,22 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #ebf4fc;
+        background-color: $backgroundSecondary;
         margin-top: 10px;
         padding: 10px 20px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-        color: #000;
+        color: $fontColor;
         font-size: 23px;
         text-align: center;
         line-height: 20px;
+        transition: all 0.5s ease-in-out;
         svg {
           width: 20px;
         }
       }
       .definition {
+        color: $fontColor;
         padding: 15px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;

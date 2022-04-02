@@ -1,6 +1,9 @@
 @import "../theme.scss";
 
 .PlatformContainer {
+  h1 {
+    color: $fontColor;
+  }
   .cardSection {
     margin-top: 20px;
     display: flex;
@@ -27,7 +30,7 @@
       height: 25px;
     }
     span {
-      color: white;
+      color:white;
       font-size: 18px;
       font-weight: bold;
       margin-left: 10px;

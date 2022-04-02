@@ -6,7 +6,6 @@
 - Añadir reaccion de corazon (como instagram) "positivo", y una reaccion negativo, si una tarjeta, tiene mas negativos que positos, mostrarsela en alerta al usuario, para que la corrija o elimine
 - El usuario puede editar y eliminar sus tarjetas}
 - Crear seccion de danger options (como github) ( eliminar cuenta, elminar todas mis tarjetas )
-- Modo oscuro/claro desde tabBar **Rosa is working on this :)**
 - Organizar tarjetas por mas likeadas
 - Filtros por tipos
 - Crear carga mas corta, solo 6 tarjetas, y alguna forma de cargar mas (detectando scroll, o con un boton)

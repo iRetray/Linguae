@@ -1,6 +1,7 @@
 @import "../theme.scss";
 
 .ContentLayoutContainer {
+  transition: all 0.5s ease-in-out;
   background-color: $emphasisColor;
   display: flex;
   justify-content: center;

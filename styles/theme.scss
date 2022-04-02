@@ -3,10 +3,12 @@
   --backgroundColor: #fff;
   --emphasisColor: #e9f2fa;
   --fontColor: #000;
+  --backgroundSecondary: #ebf4fc
 }
 $backgroundColor: var(--backgroundColor);
 $emphasisColor: var(--emphasisColor);
 $fontColor: var(--fontColor);
+$backgroundSecondary: var(--backgroundSecondary);
 
 /* Greys */
 $greyDark: #141414;

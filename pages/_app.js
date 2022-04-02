@@ -56,13 +56,13 @@ function LinguaeApp({ Component, pageProps }) {
 
   useEffect(() => {
     const themeName = themeState.isDarkMode ? "DARK" : "LIGHT";
-    const { backgroundColor, emphasisColor, fontColor } = themes.find(
-      ({ name }) => name === themeName
-    );
+    const { backgroundColor, emphasisColor, fontColor, backgroundSecondary } =
+      themes.find(({ name }) => name === themeName);
     const rootStyle = document.documentElement;
     rootStyle.style.setProperty("--backgroundColor", backgroundColor);
     rootStyle.style.setProperty("--emphasisColor", emphasisColor);
     rootStyle.style.setProperty("--fontColor", fontColor);
+    rootStyle.style.setProperty("--backgroundSecondary", backgroundSecondary);
   }, [themeState]);
 
   return (
