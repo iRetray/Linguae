@@ -36,4 +36,25 @@
       margin-left: 10px;
     }
   }
+
+  .headerPlatform {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+
+    span, input {
+      color: $fontColor ;
+      background-color: $backgroundColor ;
+    }
+  }
+}
+
+
+@media(max-width: 992px){
+  .headerPlatform {
+    justify-content: flex-end !important;
+
+    
+  }
 }

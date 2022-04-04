@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 import Head from "next/head";
 import Link from "next/link";
@@ -13,15 +13,13 @@ import { ContentLayout } from "../../layouts";
 import { Card, GoBack, Loader, Header, Modal } from "../../components";
 import CreateAccount from "./CreateAccount";
 
-import { BiImageAdd } from "react-icons/bi";
+import { BiImageAdd, BiSearchAlt } from "react-icons/bi";
+BiSearchAlt;
+import { Input } from "antd";
 
 export default function Platform() {
   const router = useRouter();
   const [userState] = useContext(UserContext);
-
-  const [modalCreateAccount, setModalCreateAccount] = useState({
-    isVisible: false,
-  });
 
   const firestore = useFirestore();
   const cardsCollection = collection(firestore, "cards");
@@ -29,12 +27,32 @@ export default function Platform() {
 
   const { status, data: cardList } = useFirestoreCollectionData(cardsQuery);
 
+  const [modalCreateAccount, setModalCreateAccount] = useState({
+    isVisible: false,
+  });
+  const [dataForSearch, setDataForSearch] = useState([]);
+
+  useEffect(() => {
+    if (!Array.isArray(cardList)) {
+      return "loading";
+    }
+    setDataForSearch(cardList);
+  }, [cardList]);
+
   const showConfirm = () => {
     if (!userState.isLogged) {
       setModalCreateAccount({ isVisible: true });
     } else {
       router.replace("/addContent");
     }
+  };
+
+  const searchWord = (e) => {
+    const word = e.target.value.toLowerCase();
+    const result = cardList.filter((el) =>
+      el.englishValue.toLowerCase().includes(word)
+    );
+    setDataForSearch(result);
   };
 
   return (
@@ -47,12 +65,20 @@ export default function Platform() {
         <Link href="/" passHref={true}>
           <GoBack previousPageName="Home" />
         </Link>
-        <h1>Community words</h1>
+        <div className="headerPlatform">
+          <h1>Community words</h1>
+          <Input
+            placeholder="Search"
+            suffix={<BiSearchAlt />}
+            onChange={searchWord}
+            style={{ width: "auto" }}
+          />
+        </div>
         {status === "loading" ? (
           <Loader text="Getting latest cards..." color="#004e89" />
         ) : (
           <div className="cardSection">
-            {cardList.map((values, index) => (
+            {dataForSearch?.map((values, index) => (
               <Card key={index} {...values} />
             ))}
           </div>

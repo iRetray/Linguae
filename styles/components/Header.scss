@@ -69,7 +69,14 @@
   }
 }
 
+.ant-popover-inner-content {
+  color: $fontColor !important;
+  background-color: $backgroundColor !important;
+}
+
 .PopoverContainer {
+  color: $fontColor ;
+  background-color: $backgroundColor ;
   .miProfile {
     cursor: pointer;
     border-radius: 10px;
